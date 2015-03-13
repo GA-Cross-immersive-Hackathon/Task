@@ -50,6 +50,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -58,6 +59,8 @@ GEM
       execjs
     coffee-script-source (1.9.1)
     columnize (0.9.0)
+    coolline (0.5.0)
+      unicode_utils (~> 1.4)
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     devise (3.4.1)
@@ -67,6 +70,10 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+<<<<<<< HEAD
+=======
+    devise-bootstrap-views (0.0.4)
+>>>>>>> e5fae495299435b5c5450d9e5e79b4dbc2b1cb18
     erubis (2.7.0)
     execjs (2.4.0)
     globalid (0.3.3)
@@ -85,6 +92,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
@@ -93,6 +101,18 @@ GEM
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
     pg (0.18.1)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-coolline (0.2.5)
+      coolline (~> 0.5)
+    pry-doc (0.6.0)
+      pry (~> 0.9)
+      yard (~> 0.8)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -156,6 +176,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode_utils (1.4.0)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.1.2)
@@ -163,6 +184,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    yard (0.8.7.6)
 
 PLATFORMS
   ruby
@@ -173,9 +195,14 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  devise-bootstrap-views
   jbuilder (~> 2.0)
   jquery-rails
   pg
+  pry
+  pry-coolline
+  pry-doc
+  pry-stack_explorer
   rails (= 4.2.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
