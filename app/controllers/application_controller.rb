@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
 
-
+# place after_sign_in_path_for here in the application contoller
 
 private
 
