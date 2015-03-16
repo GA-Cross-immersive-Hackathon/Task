@@ -70,10 +70,7 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-<<<<<<< HEAD
-=======
     devise-bootstrap-views (0.0.4)
->>>>>>> e5fae495299435b5c5450d9e5e79b4dbc2b1cb18
     erubis (2.7.0)
     execjs (2.4.0)
     globalid (0.3.3)
