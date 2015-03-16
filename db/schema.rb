@@ -31,17 +31,20 @@ ActiveRecord::Schema.define(version: 20150316133232) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
   create_table "tasks", force: :cascade do |t|
-    t.string   "content",                       null: false
+    t.string   "content",                        null: false
     t.integer  "user_id"
-    t.boolean  "priority",      default: false
+    t.boolean  "priority",       default: false
+    t.integer  "time_estimated"
     t.datetime "time_started"
     t.datetime "time_finished"
+    t.integer  "time_took"
+    t.boolean  "is_completed",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
