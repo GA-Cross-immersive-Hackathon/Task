@@ -2,7 +2,6 @@ class ActionsController < ApplicationController
   before_action :find_user
 
   def index
-    binding.pry
     @actions = @user.actions
   end
 
@@ -11,6 +10,7 @@ class ActionsController < ApplicationController
   end
 
   def create
+    binding.pry
     @actions = @user.actions.create(
       # task_params
     )

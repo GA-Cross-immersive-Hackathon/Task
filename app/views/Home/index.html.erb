@@ -33,19 +33,21 @@
 		<div class='col-sm-offset-3 col-sm-6'>
 			<h1>New Task</h1>
 
-			<form class="form-horizontal" id="new-task-form">
+			<!-- user_registration POST   /users(.:format)               devise/registrations#create -->
+
+			<form class="form-horizontal" action= "/actions" method= "post" id="new-task-form">
 
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Task Name</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control"  placeholder="Name">
+						<input type="text" name= "taskName" class="form-control"  placeholder="Name">
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Notes</label>
 					<div class="col-sm-10">
-						<input type="text" class="form-control"  placeholder="Notes">
+						<input type="text" name= "notes" class="form-control"  placeholder="Notes">
 					</div>
 				</div>
 
@@ -53,17 +55,24 @@
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Time</label>
 					<div class=" col-sm-10 text-center">
-						<span id="btn-0" class="btn btn-default btn-lg">5</span>
-						<span id="btn-1" class="btn btn-default btn-lg">10</span>
-						<span id="btn-2" class="btn btn-default btn-lg">20</span>
-						<span id="btn-3" class="btn btn-default btn-lg">30</span>
-						<span id="btn-4" class="btn btn-default btn-lg">40</span>
-						<span id="btn-5" class="btn btn-default btn-lg">50</span>
-						<span id="btn-6" class="btn btn-default btn-lg">60</span>
+						<label for="">5</label>
+						<input type="radio" name= "timeEstimate" class="btn btn-default btn-lg" value= "5" checked>
+						<label for="">10</label>
+						<input type="radio" name= "timeEstimate" class="btn btn-default btn-lg" value= "10" checked>
+						<label for="">20</label>
+						<input type="radio" name= "timeEstimate" class="btn btn-default btn-lg" value= "20" checked>
+						<label for="">30</label>
+						<input type="radio" name= "timeEstimate" class="btn btn-default btn-lg" value= "30" checked>
+						<label for="">40</label>
+						<input type="radio" name= "timeEstimate" class="btn btn-default btn-lg" value= "40" checked>
+						<label for="">50</label>
+						<input type="radio" name= "timeEstimate" class="btn btn-default btn-lg" value= "50" checked>
+						<label for="">60</label>
+						<input type="radio" name= "timeEstimate" class="btn btn-default btn-lg" value= "60" checked>
 					</div>
 				</div>
-			
 
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token() %>">
 				<div class="form-group">
 						<div class="col-md-offset-6 col-md-4">
 							<button type="submit" class="btn btn-default" id="add-new-task">Add Task</button>
@@ -73,6 +82,3 @@
 			</form>
 
 </div>
-
-
-
