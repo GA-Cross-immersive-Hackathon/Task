@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316133232) do
+ActiveRecord::Schema.define(version: 20150316200134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.string   "content",                        null: false
+    t.integer  "user_id"
+    t.boolean  "priority",       default: false
+    t.integer  "time_estimated"
+    t.datetime "time_started"
+    t.datetime "time_finished"
+    t.integer  "time_took"
+    t.boolean  "is_completed",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -27,19 +40,6 @@ ActiveRecord::Schema.define(version: 20150316133232) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "tasks", force: :cascade do |t|
-    t.string   "content",                        null: false
-    t.integer  "user_id"
-    t.boolean  "priority",       default: false
-    t.integer  "time_estimated"
-    t.datetime "time_started"
-    t.datetime "time_finished"
-    t.integer  "time_took"
-    t.boolean  "is_completed",   default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

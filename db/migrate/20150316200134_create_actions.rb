@@ -1,6 +1,6 @@
-class CreateTasks < ActiveRecord::Migration
+class CreateActions < ActiveRecord::Migration
   def change
-    create_table :tasks do |t|
+    create_table :actions do |t|
       t.string     :content, null: false
       t.references :user
       t.boolean    :priority, :default => false
