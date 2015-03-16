@@ -31,10 +31,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'devise-bootstrap-views'
 
+
 gem 'pry'
 gem 'pry-stack_explorer'
 gem 'pry-doc'
 gem 'pry-coolline'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
