@@ -7,7 +7,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="/"><strong class="h2">TASK</strong></a><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+			<a class="navbar-brand" href="/"><strong class="h2">RealTime</strong></a><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		</div>
 
 		<div class="collapse navbar-collapse" id="main-nav">
@@ -19,7 +19,7 @@
 					<a href="#" class-"dropdown-toggle" data-toggle="dropdown" role="button" aria-expand="false">Menu<span class="caret"></span></a>
 					<ul class="dropdown-menu" role="menu">
 						<li><%= link_to "List" %></li>
-						<li><%= link_to "Profile"%></li>
+						<li><%= link_to "My History" %></li>
 						<li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "log out"%></li>
 					</ul>
 				</li>
@@ -29,23 +29,50 @@
 </nav>
 
 <div class="container">
-	<div class="jumbotron col-md-offset-3 col-md-6">
-				<h2 class="col-md-offset-2 ">How much time do you have?</h2>
-		<div>
-			<div class="form-group">
-				<input type="text" class="col-sm-6 form-control"></input>
-			</div>
-		
-				<select id="time-selection" class="col-sm-3 form-control" multiple-class="form-control">
-					<option value="minute">Minute(s)</option>
-					<option value="hour">Hour(s)</option>
-					<option value="day">Day(s)</option>
-				</select>
+	<div class="row">
+		<div class='col-sm-offset-3 col-sm-6'>
+			<h1>New Task</h1>
 
-			</div>
-			</div>
-		</div>
-	</div>
+			<form class="form-horizontal" id="new-task-form">
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Task Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control"  placeholder="Name">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Notes</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control"  placeholder="Notes">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Time</label>
+					<div class=" col-sm-10 text-center">
+						<span id="btn-0" class="btn btn-default btn-lg">5</span>
+						<span id="btn-1" class="btn btn-default btn-lg">10</span>
+						<span id="btn-2" class="btn btn-default btn-lg">20</span>
+						<span id="btn-3" class="btn btn-default btn-lg">30</span>
+						<span id="btn-4" class="btn btn-default btn-lg">40</span>
+						<span id="btn-5" class="btn btn-default btn-lg">50</span>
+						<span id="btn-6" class="btn btn-default btn-lg">60</span>
+					</div>
+				</div>
+			
+
+				<div class="form-group">
+						<div class="col-md-offset-6 col-md-4">
+							<button type="submit" class="btn btn-default" id="add-new-task">Add Task</button>
+						</div>
+					</div>
+				</div>
+			</form>
+
 </div>
+
 
 

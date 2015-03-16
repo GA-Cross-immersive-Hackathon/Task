@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #prod-name{
-	font-size: 12em;
+	font-size: 10em;
 }
 
 #stopwatch{
@@ -10,3 +10,6 @@
 	margin-bottom: 5px;
 }
 
+.modal-body {
+	overflow: auto;
+}
