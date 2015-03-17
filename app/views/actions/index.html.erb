@@ -1,3 +1,9 @@
 <%=  render 'layouts/header' %>
 <!-- foreach through list add listener and display name and est. time -->
-
+<ul>
+<% @actions.each do |action| %>
+  <li><h3><%= action.action_name%></h3></li>
+    <p><%= action.notes%></p>
+    <p><%= action.time_estimated%></p>
+<% end %>
+</ul>

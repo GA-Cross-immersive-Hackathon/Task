@@ -5,9 +5,6 @@ class ActionsController < ApplicationController
   def index
     @actions = @user.actions
     render :index
-    # respond_to do |format|
-    #     format.json {render :json => token}
-    # end
   end
 
   def new
@@ -29,7 +26,7 @@ class ActionsController < ApplicationController
   end
 
   private
-  
+
   def action_params
     params.permit(:notes, :time_estimated, :action_name)
   end

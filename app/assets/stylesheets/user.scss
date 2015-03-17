@@ -2,25 +2,26 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #prod-name{
-	font-size: 10em;
+    font-size: 10em;
 }
 
 #stopwatch{
-	font-size: 3em;
-	margin-bottom: 5px;
+    font-size: 3em;
+    margin-bottom: 5px;
 }
 
 .modal-body {
-	overflow: auto;
+    overflow: auto;
 }
 
 .alert {
-	font-style: helvetica;
-	font-weight: 3em;
-	color: red;
+    font-style: helvetica;
+    font-weight: 3em;
+    color: red;
 }
 
 
-
-
-
+.new-task-time, .new-task-name{
+    font-size: 1.3em;
+    margin-top: 20px;
+}
