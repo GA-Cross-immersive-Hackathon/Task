@@ -1,7 +1,6 @@
 class ActionsController < ApplicationController
   before_action :find_user
 
-
   def index
     @actions = @user.actions
     render :index
