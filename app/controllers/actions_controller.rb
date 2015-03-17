@@ -10,7 +10,6 @@ class ActionsController < ApplicationController
   end
 
   def create
-    binding.pry
     @actions = @user.actions.create(
       # task_params
     )
