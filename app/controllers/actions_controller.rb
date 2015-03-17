@@ -3,6 +3,9 @@ class ActionsController < ApplicationController
 
   def index
     @actions = @user.actions
+    token = session["_csrf_token"]
+    render :json => token
+ 
   end
 
   def new
@@ -10,11 +13,12 @@ class ActionsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @actions = @user.actions.create(
-      # task_params
-    )
-    redirect_to action_path(@actions)
+    @actions = @user.actions.create(action_params)
+
+    if @actions
+      render :json => @actions
+    end
+    # redirect_to action_path(@actions)
   end
 
   def show
@@ -22,7 +26,9 @@ class ActionsController < ApplicationController
   end
 
   private
-
+  def action_params
+    params.permit(:notes, :time_estimated, :action_name)
+  end
   def find_user
     @user = User.find(current_user)
   end

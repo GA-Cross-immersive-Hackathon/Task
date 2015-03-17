@@ -20,27 +20,6 @@
 	color: red;
 }
 
-input[type=radio]{
-	display:none;
-	 text-align: center;
-}
-
-input[type=radio] + label{
-	display: inline-block;
-	padding: 4px 12px;
-	margin-left: auto;
-	width: 40px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	font-size: 1.2em;
-	font-weight: normal;
-	text-align: center;
-}
-
-input[type=radio]:checked + label{
-	background-color: #e6e6e6;
-	border-color: #adadad;
-}
 
 
 
