@@ -92,10 +92,12 @@ var renderAction = function(obj) {
    taskListDiv.appendChild(div);
 
 
-    var inputName = document.getElementById('action-name');
+   var inputName = document.getElementById('action-name');
    var inputNotes = document.getElementById('action-notes');
+   var priorityCheckbox = document.getElementById('priority-check');
    inputName.value = "";
    inputNotes.value = "";
+   priorityCheckbox.checked = false;
 }
 
 
@@ -106,8 +108,7 @@ var actionObject = function() {
        xhr.addEventListener('load', function() {
          var token = xhr.responseText;
          var priorityCheckbox = document.getElementById('priority-check');
-         console.log(priorityCheckbox.value);
-         if (priorityCheckbox.value === true) {
+         if (priorityCheckbox.checked === true) {
            var priorityValue = true;
          } else {
            var priorityValue = false
