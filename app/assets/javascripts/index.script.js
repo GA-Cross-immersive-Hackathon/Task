@@ -73,39 +73,41 @@ var renderAction = function(obj) {
 
 
 var actionObject = function() {
-    var action_object = {
-        action_name : $('#action-name').val(),
-        notes : $('#action-notes').val(),
-        time_estimated : clicked    
-    }
-    return action_object
+
+    var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'http://localhost:3000/actions.json');
+        xhr.addEventListener('load', function() {
+          var token = xhr.responseText;
+          console.log(token);
+          var action_object = {
+            action_name : $('#action-name').val(),
+            notes : $('#action-notes').val(),
+            time_estimated : clicked, 
+            authenticity_token: token 
+           }
+
+    var xhr2 = new XMLHttpRequest();
+          xhr2.open('POST', 'http://localhost:3000/actions');
+          xhr2.setRequestHeader('Content-Type', "application/json;charset=UTF-8")
+          xhr2.addEventListener('load', function() {
+            var statusResponse = JSON.parse(xhr2.responseText);
+            if (statusResponse.status === "success") {
+                // run renderAction()
+            } else {
+              alert("there was an error saving your data")
+            }
+          });
+          xhr2.send(JSON.stringify(action_object));
+        });
+
+    xhr.send();  
 }
 
 $(function(){
-
 $('#add-new-task').on('click', function(e){
     e.preventDefault();
     console.log('hello');
-    $.ajax({
-        url: "/actions.json",
-        method: "GET",
-        dataType: "json",
-        success: function(data){
-            console.log(data);
-        }
-
-    })
-    // var obj = actionObject()
-        // $.ajax({
-        //     url: "/actions",
-        //     method: 'POST',
-        //     data: obj,
-        //     dataType:'json',
-        //     success: function(data){
-        //         // renderAction();
-        //         console.log(data);
-        //     }
-        // })
+    actionObject();
     })
 
 })

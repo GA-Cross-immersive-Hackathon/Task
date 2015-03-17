@@ -15,10 +15,13 @@ class ActionsController < ApplicationController
   end
 
   def create
+    binding.pry
     @actions = @user.actions.create(action_params)
 
     if @actions
-      render :json => @actions
+      render json: {status: "success"}
+    else
+      render json: {status: "error"}
     end
     # redirect_to action_path(@actions)
   end
