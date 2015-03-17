@@ -4,8 +4,10 @@ class ActionsController < ApplicationController
   def index
     @actions = @user.actions
     token = session["_csrf_token"]
-    render :json => token
- 
+    respond_to do |format|
+    format.html
+    format.json {render :json => token}  
+    end
   end
 
   def new

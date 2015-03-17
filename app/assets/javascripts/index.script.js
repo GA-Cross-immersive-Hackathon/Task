@@ -87,7 +87,7 @@ $('#add-new-task').on('click', function(e){
     e.preventDefault();
     console.log('hello');
     $.ajax({
-        url: "/actions",
+        url: "/actions.json",
         method: "GET",
         dataType: "json",
         success: function(data){
