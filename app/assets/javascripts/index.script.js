@@ -1,4 +1,12 @@
 console.log('we are connected to index.html.erb');
+// var bindToken = function (token) {
+//     $('body').bind('ajaxSend', function(elm, xhr, s){
+//         if(s.type === 'POST'){
+//             xhr.setRequestHeader('X-CSRF-Token', token);
+//         }
+//     })    
+// }
+
 
 
 var deactivateButton = function(currentButton) {
@@ -57,9 +65,47 @@ var taskTimeSelector = function(){
         deactivateButton(this.id);
         clicked = 60;
     })
-    return clicked;
   }
 
-  // var time = function() {
-  //   return clicked;
-  // }
+var renderAction = function(obj) {
+
+}
+
+
+var actionObject = function() {
+    var action_object = {
+        action_name : $('#action-name').val(),
+        notes : $('#action-notes').val(),
+        time_estimated : clicked    
+    }
+    return action_object
+}
+
+$(function(){
+
+$('#add-new-task').on('click', function(e){
+    e.preventDefault();
+    console.log('hello');
+    $.ajax({
+        url: "/actions.json",
+        method: "GET",
+        dataType: "json",
+        success: function(data){
+            console.log(data);
+        }
+
+    })
+    // var obj = actionObject()
+        // $.ajax({
+        //     url: "/actions",
+        //     method: 'POST',
+        //     data: obj,
+        //     dataType:'json',
+        //     success: function(data){
+        //         // renderAction();
+        //         console.log(data);
+        //     }
+        // })
+    })
+
+})
