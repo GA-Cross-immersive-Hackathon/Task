@@ -1,13 +1,13 @@
 class ActionsController < ApplicationController
   before_action :find_user
 
+
   def index
     @actions = @user.actions
-    token = session["_csrf_token"]
-    respond_to do |format|
-    format.html
-    format.json {render :json => token}
-    end
+    render :index
+    # respond_to do |format|
+    #     format.json {render :json => token}
+    # end
   end
 
   def new
@@ -29,6 +29,7 @@ class ActionsController < ApplicationController
   end
 
   private
+  
   def action_params
     params.permit(:notes, :time_estimated, :action_name)
   end
