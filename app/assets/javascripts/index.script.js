@@ -99,7 +99,7 @@ var renderAction = function(obj) {
 var actionObject = function() {
 
    var xhr = new XMLHttpRequest();
-       xhr.open('GET', 'http://localhost:3000/actions.json');
+       xhr.open('GET', '/token.json');
        xhr.addEventListener('load', function() {
          var token = xhr.responseText;
          console.log(token);
@@ -111,7 +111,7 @@ var actionObject = function() {
           }
 
    var xhr2 = new XMLHttpRequest();
-         xhr2.open('POST', 'http://localhost:3000/actions');
+         xhr2.open('POST', '/actions');
          xhr2.setRequestHeader('Content-Type', "application/json;charset=UTF-8")
          xhr2.addEventListener('load', function() {
            var statusResponse = JSON.parse(xhr2.responseText);
@@ -127,9 +127,9 @@ var actionObject = function() {
    xhr.send();
 }
 
-$(function(){
-$('#add-new-task').on('click', function(e){
-   e.preventDefault();
-   actionObject();
- });
-});
+var addTaskListener = function() {
+  $('#add-new-task').on('click', function(e){
+     e.preventDefault();
+     actionObject();
+   });
+}

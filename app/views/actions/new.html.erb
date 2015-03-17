@@ -39,11 +39,12 @@
         <script type="text/javascript">
           taskTimeSelector();
         </script>
-
-        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token() %>">
         <div class="form-group">
             <div class="col-md-offset-3 col-md-6">
               <button type="button" class="btn btn-default" id="add-new-task">Add Task</button>
+              <script charset="utf-8">
+                addTaskListener();
+              </script>
             </div>
           </div>
         </div>
@@ -51,3 +52,4 @@
     </div>
   </div>
 </div>
+<div class="container" id= "task-list-div"></div>
