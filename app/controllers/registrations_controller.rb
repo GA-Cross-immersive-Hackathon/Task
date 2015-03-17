@@ -10,4 +10,8 @@ class RegistrationsController < Devise::RegistrationsController
     new_action_path
   end
 
+  def after_sign_in_path_for(users)
+    root_path
+  end
+
 end

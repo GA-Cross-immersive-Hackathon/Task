@@ -60,8 +60,6 @@ var taskTimeSelector = function(){
 
 var renderAction = function(obj) {
 
-
-
    var taskListDiv = document.getElementById('task-list-div');
    var div = document.createElement('div');
    var h3 = document.createElement('div');
@@ -102,11 +100,18 @@ var actionObject = function() {
        xhr.open('GET', '/token.json');
        xhr.addEventListener('load', function() {
          var token = xhr.responseText;
-         console.log(token);
+         var priorityCheckbox = document.getElementById('priority-check');
+         console.log(priorityCheckbox.value);
+         if (priorityCheckbox.value === true) {
+           var priorityValue = true;
+         } else {
+           var priorityValue = false
+         }
          var action_object = {
            action_name : $('#action-name').val(),
            notes : $('#action-notes').val(),
            time_estimated : clicked,
+           priority : priorityValue,
            authenticity_token: token
           }
 
