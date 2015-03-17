@@ -13,7 +13,6 @@ class ActionsController < ApplicationController
   def create
     binding.pry
     @actions = @user.actions.create(action_params)
-
     if @actions
       render json: {status: "success"}
     else
@@ -22,7 +21,7 @@ class ActionsController < ApplicationController
   end
 
   def show
-    @actions = Action.find(params[:id])
+    @action = Action.find(params[:id])
   end
 
   private
@@ -30,6 +29,7 @@ class ActionsController < ApplicationController
   def action_params
     params.permit(:notes, :time_estimated, :action_name, :priority)
   end
+
   def find_user
     @user = User.find(current_user)
   end
