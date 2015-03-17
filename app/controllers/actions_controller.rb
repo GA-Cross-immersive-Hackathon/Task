@@ -11,6 +11,7 @@ class ActionsController < ApplicationController
   end
 
   def create
+    binding.pry
     @actions = @user.actions.create(action_params)
 
     if @actions
@@ -27,7 +28,7 @@ class ActionsController < ApplicationController
   private
 
   def action_params
-    params.permit(:notes, :time_estimated, :action_name)
+    params.permit(:notes, :time_estimated, :action_name, :priority)
   end
   def find_user
     @user = User.find(current_user)

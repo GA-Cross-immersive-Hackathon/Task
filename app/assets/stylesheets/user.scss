@@ -1,8 +1,13 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+	background: rgba(187,229,243, .4)
+}
 #prod-name{
     font-size: 10em;
+    color: white;
 }
 
 #stopwatch{
@@ -24,4 +29,51 @@
 .new-task-time, .new-task-name{
     font-size: 1.3em;
     margin-top: 20px;
+}
+
+#top-nav-main{
+	background: #00557C;
+}
+
+#brand-name{
+	color:white;
+	font-size: 1.5em;
+}
+
+#main-nav{
+	>ul{
+		>li{
+			>a {
+				color:white;
+				&:focus{
+					background-color: #BBE5f3;
+				}
+			}
+		}
+	}
+}
+
+.navbar-default 
+.navbar-nav .open 
+.dropdown-menu {
+	> li {
+			> a {
+				&:hover {
+				color: white;
+			}
+	  font-size: 1.01em;
+	  }
+	}
+}
+
+#menu-button, #add-task-button{
+	font-size: 1.05em;
+}
+
+.jumbotron{
+	background: #81C1DC;
+}
+
+input[type=text]{
+	margin-bottom: 5px;
 }

@@ -2,7 +2,7 @@ console.log('we are connected to index.html.erb');
 
 var deactivateButton = function(currentButton) {
  var buttonid = "#"+ currentButton
- var buttons = ['#btn-0','#btn-1','#btn-2','#btn-3','#btn-4','#btn-5','#btn-6']
+ var buttons = ['#btn-0','#btn-1','#btn-2','#btn-3','#btn-4','#btn-5','#btn-6', 'btn-7']
  buttons.forEach(function(button) {
    if (button != buttonid) {
      $(button).removeClass('active');
@@ -56,6 +56,11 @@ var taskTimeSelector = function(){
        deactivateButton(this.id);
        clicked = 60;
    })
+   $('#btn-7').on('click', function(){
+       $(this).addClass('active');
+       deactivateButton(this.id);
+       clicked = 0;
+   })
  }
 
 var renderAction = function(obj) {
@@ -87,10 +92,12 @@ var renderAction = function(obj) {
    taskListDiv.appendChild(div);
 
 
-    var inputName = document.getElementById('action-name');
+   var inputName = document.getElementById('action-name');
    var inputNotes = document.getElementById('action-notes');
+   var priorityCheckbox = document.getElementById('priority-check');
    inputName.value = "";
    inputNotes.value = "";
+   priorityCheckbox.checked = false;
 }
 
 
@@ -101,8 +108,7 @@ var actionObject = function() {
        xhr.addEventListener('load', function() {
          var token = xhr.responseText;
          var priorityCheckbox = document.getElementById('priority-check');
-         console.log(priorityCheckbox.value);
-         if (priorityCheckbox.value === true) {
+         if (priorityCheckbox.checked === true) {
            var priorityValue = true;
          } else {
            var priorityValue = false
