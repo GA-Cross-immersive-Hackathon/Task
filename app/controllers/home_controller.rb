@@ -3,6 +3,7 @@ class HomeController < ApplicationController
 
   def index
     @user = find_user
+    @token_value = session["_csrf_token"]
 		render :index
 	end
 
