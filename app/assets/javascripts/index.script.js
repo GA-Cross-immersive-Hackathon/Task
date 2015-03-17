@@ -2,7 +2,7 @@ console.log('we are connected to index.html.erb');
 
 var deactivateButton = function(currentButton) {
  var buttonid = "#"+ currentButton
- var buttons = ['#btn-0','#btn-1','#btn-2','#btn-3','#btn-4','#btn-5','#btn-6']
+ var buttons = ['#btn-0','#btn-1','#btn-2','#btn-3','#btn-4','#btn-5','#btn-6', 'btn-7']
  buttons.forEach(function(button) {
    if (button != buttonid) {
      $(button).removeClass('active');
@@ -55,6 +55,11 @@ var taskTimeSelector = function(){
        $(this).addClass('active');
        deactivateButton(this.id);
        clicked = 60;
+   })
+   $('#btn-7').on('click', function(){
+       $(this).addClass('active');
+       deactivateButton(this.id);
+       clicked = 0;
    })
  }
 
