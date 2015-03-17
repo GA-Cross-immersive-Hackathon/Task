@@ -1,13 +1,4 @@
 console.log('we are connected to index.html.erb');
-// var bindToken = function (token) {
-//     $('body').bind('ajaxSend', function(elm, xhr, s){
-//         if(s.type === 'POST'){
-//             xhr.setRequestHeader('X-CSRF-Token', token);
-//         }
-//     })    
-// }
-
-
 
 var deactivateButton = function(currentButton) {
   var buttonid = "#"+ currentButton
@@ -82,8 +73,8 @@ var actionObject = function() {
           var action_object = {
             action_name : $('#action-name').val(),
             notes : $('#action-notes').val(),
-            time_estimated : clicked, 
-            authenticity_token: token 
+            time_estimated : clicked,
+            authenticity_token: token
            }
 
     var xhr2 = new XMLHttpRequest();
@@ -92,7 +83,7 @@ var actionObject = function() {
           xhr2.addEventListener('load', function() {
             var statusResponse = JSON.parse(xhr2.responseText);
             if (statusResponse.status === "success") {
-                // run renderAction()
+              renderAction(action_object);
             } else {
               alert("there was an error saving your data")
             }
@@ -100,7 +91,7 @@ var actionObject = function() {
           xhr2.send(JSON.stringify(action_object));
         });
 
-    xhr.send();  
+    xhr.send();
 }
 
 $(function(){
