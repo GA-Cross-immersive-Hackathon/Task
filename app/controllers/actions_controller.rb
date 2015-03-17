@@ -6,7 +6,7 @@ class ActionsController < ApplicationController
     token = session["_csrf_token"]
     respond_to do |format|
     format.html
-    format.json {render :json => token}  
+    format.json {render :json => token}
     end
   end
 
@@ -15,7 +15,6 @@ class ActionsController < ApplicationController
   end
 
   def create
-    binding.pry
     @actions = @user.actions.create(action_params)
 
     if @actions
@@ -23,7 +22,6 @@ class ActionsController < ApplicationController
     else
       render json: {status: "error"}
     end
-    # redirect_to action_path(@actions)
   end
 
   def show
