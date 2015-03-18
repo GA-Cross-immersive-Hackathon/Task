@@ -20,7 +20,7 @@ class ActionsController < ApplicationController
     end
   end
 
-  def show
+  def current_list
     binding.pry
     time_est = params[:time_available]
     actions = Action.where("time_estimated <= ?", time_est)
