@@ -3,11 +3,25 @@
 	<div class="jumbotron col-md-offset-3 col-md-6">
 				<h2>How much time do you have?</h2>
 		<div>
-				<input type="text" class="col-sm-3 form-control" name="current-time"></input>
-				<select id="time-selection" class="col-sm-3 form-control">
-					<option value="minute">Minute(s)</option>
-					<option value="hour">Hour(s)</option>
-				</select>
+<!-- 				<input type="text" class="col-sm-3 form-control" name="current-time"></input> -->
+
+	    <div class="form-group">
+        <label class="col-sm-2 control-label">Time</label>
+        <div class=" col-sm-offset-1 col-sm-9">
+          <span type="radio" id="btn-0" name="time_available" class="btn btn-default ">5</span>
+          <span type="radio" id="btn-1" name="time_available" class="btn btn-default">10</span>
+          <span type="radio" id="btn-2" name="time_available" class="btn btn-default ">20</span>
+          <span type="radio" id="btn-3" name="time_available" class="btn btn-default ">30</span>
+          <span type="radio" id="btn-4" name="time_available" class="btn btn-default ">40</span>
+          <span type="radio" id="btn-5" name="time_available" class="btn btn-default ">50</span>
+          <span type="radio" id="btn-6" name="time_available" class="btn btn-default ">60</span>
+        </div>
+      </div>
+
+        <script type="text/javascript">
+          breakTimeSelector();
+        </script>
+
 				<button type="button" class="btn btn-default" id="select-time">Submit</button>
 		</div>
 	</div>
