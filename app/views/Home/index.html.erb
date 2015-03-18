@@ -4,26 +4,26 @@
 				<h2>How much time do you have?</h2>
 		<div>
 <!-- 				<input type="text" class="col-sm-3 form-control" name="current-time"></input> -->
-<form class="form-horizontal" action= "/current_list" method= "post" id="new-task-form">
+<form class="form-horizontal" action= "/current_list" method= "get" id="new-task-form">
 	<div class="form-group">
         <label class="col-sm-2 control-label">Minutes</label>
         <div class= "col-sm-10">
-          <span type="radio" id="btn-0" name="time_available" class="btn btn-default ">5</span>
-          <span type="radio" id="btn-1" name="time_available" class="btn btn-default">10</span>
-          <span type="radio" id="btn-2" name="time_available" class="btn btn-default ">20</span>
-          <span type="radio" id="btn-3" name="time_available" class="btn btn-default ">30</span>
-          <span type="radio" id="btn-4" name="time_available" class="btn btn-default ">40</span>
-          <span type="radio" id="btn-5" name="time_available" class="btn btn-default ">50</span>
-          <span type="radio" id="btn-6" name="time_available" class="btn btn-default ">60</span>
+          <button type="radio" id="btn-0" name="time_available" value= "5" class="btn btn-default ">5</button>
+          <button type="radio" id="btn-1" name="time_available" value= "10"class="btn btn-default">10</button>
+          <button type="radio" id="btn-2" name="time_available" value= "20"class="btn btn-default ">20</button>
+          <button type="radio" id="btn-3" name="time_available" value= "30"class="btn btn-default ">30</button>
+          <button type="radio" id="btn-4" name="time_available" value= "40"class="btn btn-default ">40</button>
+          <button type="radio" id="btn-5" name="time_available" value= "50"class="btn btn-default ">50</button>
+          <button type="radio" id="btn-6" name="time_available" value= "60"class="btn btn-default ">60</button>
         </div>
       </div>
 
         <script type="text/javascript">
-          breakTimeSelector();
+          // breakTimeSelector();
         </script>
 				<div class="form-group">
 					<div class="col-md-offset-2 col-md-8 text-center">
-						<button type="button" class="btn btn-default" id="select-time">Submit</button>
+						<button type="submit" class="btn btn-default" id="select-time">Submit</button>
 					</div>
 				</div>
 			</form>
