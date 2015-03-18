@@ -20,10 +20,15 @@ class ActionsController < ApplicationController
     end
   end
 
-  def show
+  def current_list
     binding.pry
-    # this is going to display the list of actions at or below the time selected.
-    @actions = Action.find(params[:id])
+    time_est = params[:time_available]
+    actions = Action.where("time_estimated <= ?", time_est)
+    # these are priority actions that are at or below the time available
+    @priority_actions = actions.where(:priority == true)
+    nonpriority = actions.where(:priority == false)
+    # these are the nonpriority actions that are at or below the time available
+    @sorted_actions = nonpriority.order("time_estimated")
   end
 
   private
