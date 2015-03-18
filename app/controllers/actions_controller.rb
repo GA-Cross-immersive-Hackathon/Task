@@ -21,7 +21,9 @@ class ActionsController < ApplicationController
   end
 
   def show
-    @action = Action.find(params[:id])
+    binding.pry
+    # this is going to display the list of actions at or below the time selected.
+    @actions = Action.find(params[:id])
   end
 
   private
