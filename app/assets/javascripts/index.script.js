@@ -12,29 +12,34 @@ var deactivateButton = function(currentButton) {
 
 
 var clicked;
+var elaborate;
 var taskTimeSelector = function(){
 
    $('#btn-0').on('click', function(){
        $(this).addClass('active');
        deactivateButton(this.id);
        clicked = 5;
+       elaborate = false;
    })
    $('#btn-1').on('click', function(){
        $(this).addClass('active');
        deactivateButton(this.id);
        clicked = 10;
+       elaborate = false;
    })
 
    $('#btn-2').on('click', function(){
        $(this).addClass('active');
        deactivateButton(this.id);
        clicked = 20;
+       elaborate = false;
    })
 
    $('#btn-3').on('click', function(){
        $(this).addClass('active');
        deactivateButton(this.id);
        clicked = 30;
+       elaborate = false;
    })
 
 
@@ -42,6 +47,7 @@ var taskTimeSelector = function(){
        $(this).addClass('active');
        deactivateButton(this.id);
        clicked = 40;
+       elaborate = false;
    })
 
 
@@ -49,17 +55,20 @@ var taskTimeSelector = function(){
        $(this).addClass('active');
        deactivateButton(this.id);
        clicked = 50;
+       elaborate = false;
    })
 
    $('#btn-6').on('click', function(){
        $(this).addClass('active');
        deactivateButton(this.id);
        clicked = 60;
+       elaborate = false;
    })
    $('#btn-7').on('click', function(){
        $(this).addClass('active');
        deactivateButton(this.id);
-       clicked = 0;
+       clicked = 5;
+       elaborate = true;
    })
  }
 
@@ -117,6 +126,7 @@ var actionObject = function() {
            action_name : $('#action-name').val(),
            notes : $('#action-notes').val(),
            time_estimated : clicked,
+           elaborate : elaborate,
            priority : priorityValue,
            authenticity_token: token
           }
