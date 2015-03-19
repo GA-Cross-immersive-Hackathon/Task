@@ -93,8 +93,8 @@ border-bottom: 1px solid #070173;
 	}
 }
 
-.navbar-default 
-.navbar-nav .open 
+.navbar-default
+.navbar-nav .open
 .dropdown-menu {
 	> li {
 	  font-size: 1.01em;
@@ -119,10 +119,91 @@ ul{
 	}
 }
 
+<<<<<<< HEAD
+=======
+.show {
+	display: block;
+}
+.clicker-div{
+  display: none;
+}
+>>>>>>> bc64fa89b1232bf37575623b07bbd7d18093bead
 .action-div{
 	cursor: pointer;
 	margin-bottom: 10px;
-}	
+}
+
+//
+.doButton {
+  margin-bottom: 2%;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+//place "time-foot" on current_list.html.erb
+.time-foot {
+  font-size: 1em;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+.time-foot {
+  font-size: 1em;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+
+// color divs on current_list.html.erb
+.priority {
+  background-color: #E0336A;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.sixty {
+  background-color: #2B015C;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.fifty {
+  background-color: #070173;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.forty {
+  background-color: #0205DA;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.thirty {
+  background-color: #2366D0;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.twenty {
+  background-color: #00B4FF;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+.ten {
+  background-color: #00DDFF;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+.five {
+  background-color: #96F2FC;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+
+
+// actions/new.html.erb
+.whisper {
+  color: #9B9B9B;
+  font-style: italic;
+}
+
+.addTaskButton {
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
 
 .modal-backdrop{
 	background-color: black;

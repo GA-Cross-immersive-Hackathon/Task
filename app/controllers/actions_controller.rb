@@ -4,12 +4,15 @@ class ActionsController < ApplicationController
   def index
     actions = @user.actions
     @all_sorted_actions = actions.order("time_estimated")
+
     # binding.pry
+
     render :index
   end
 
   def new
     @actions = @user.actions.new
+    render :new
   end
 
   def create
@@ -23,15 +26,20 @@ class ActionsController < ApplicationController
   end
 
   def current_list
-    # binding.pry
     @time_est = params[:time_available]
     actions = @user.actions.where("time_estimated <= ?", @time_est)
     # these are priority actions that are at or below the time available
-    @priority_actions = actions.where(priority: true)
+    @priority_actions = actions.where(priority: true).order("time_estimated").reverse
     nonpriority = actions.where(priority: false)
     # these are the nonpriority actions that are at or below the time available
-    @sorted_actions = nonpriority.order("time_estimated")
-    binding.pry
+    @sorted_actions = nonpriority.order("time_estimated").reverse
+  end
+
+  def update
+    # if 'start' find the corresponding action and update the column time_started
+    # if 'end' find the corresponding action and update the column time_finished
+    # and calculate the time it took to accomplish task
+
   end
 
   private

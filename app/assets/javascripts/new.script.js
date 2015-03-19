@@ -1,4 +1,4 @@
-console.log('we are connected to index.html.erb');
+console.log('we are connected to new.html.erb');
 
 var deactivateButton = function(currentButton) {
  var buttonid = "#"+ currentButton
