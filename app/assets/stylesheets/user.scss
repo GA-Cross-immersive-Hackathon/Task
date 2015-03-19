@@ -20,6 +20,13 @@
     color: red;
 }
 
+// home/index.html.erb
+.header-current-time {
+  font-family: "futura";
+  font-style: 30px;
+}
+
+
 .jumbotron{
 	background: white;
 }
@@ -83,6 +90,19 @@ ul{
 	margin-bottom: 10px;
 }
 
+.action-div-add {
+	cursor: pointer;
+	margin-bottom: 10px;
+  padding: 1%;
+  >h3 {
+    font-size: 1.5em;
+    display: inline;
+  }
+  >p {
+    display: inline;
+    margin-left: 65%;
+  }
+}
 //
 .doButton {
   margin-bottom: 2%;

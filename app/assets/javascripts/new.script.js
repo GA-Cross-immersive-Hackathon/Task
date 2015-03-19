@@ -72,20 +72,48 @@ var taskTimeSelector = function(){
    })
  }
 
-var renderAction = function(obj) {
 
+ // <div class="action-div sixty col-sm-offset-2 col-sm-8 text-left">
+ //   <h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+ //   <p class= "time-foot text-right"><%=sorted.time_estimated%></p>
+ //   <div class="clicker-div">
+ //     <p>Notes: <%= sorted.notes%></p>
+ //     <p>Time: <%= sorted.time_estimated%></p>
+ //     <button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+ //   </div>
+ // </div>
+var renderAction = function(obj) {
    var taskListDiv = document.getElementById('task-list-div');
    var div = document.createElement('div');
-   var h3 = document.createElement('div');
-   var time = document.createElement('div');
-
-   div.setAttribute('class', 'new-task-div row');
-
-   h3.setAttribute('class', 'new-task-name col-sm-offset-4 col-sm-2');
-
-   time.setAttribute('class', 'col-sm-2 new-task-time');
-
-
+   if (obj.priority === true) {
+     div.setAttribute('class', ' priority action-div-add col-sm-offset-4 col-sm-5');
+   } else if (obj.priority === false) {
+     if (obj.time_estimated === 60) {
+       div.setAttribute('class', 'sixty action-div-add col-sm-offset-4 col-sm-5');
+     }
+     if (obj.time_estimated === 50) {
+       div.setAttribute('class', 'fifty action-div-add col-sm-offset-4 col-sm-5');
+     }
+     if (obj.time_estimated === 40) {
+       div.setAttribute('class', 'forty action-div-add col-sm-offset-4 col-sm-5');
+     }
+     if (obj.time_estimated === 30) {
+       div.setAttribute('class', 'thirty action-div-add col-sm-offset-4 col-sm-5');
+     }
+     if (obj.time_estimated === 20) {
+       div.setAttribute('class', 'twenty action-div-add col-sm-offset-4 col-sm-5');
+     }
+     if (obj.time_estimated === 10) {
+       div.setAttribute('class', 'ten action-div-add col-sm-offset-4 col-sm-5');
+     }
+     if (obj.time_estimated === 5) {
+       div.setAttribute('class', 'five action-div-add col-sm-offset-4 col-sm-5');
+     }
+   }
+   var h3 = document.createElement('h3');
+   h3.setAttribute('class', 'action text-left');
+   var time = document.createElement('p');
+   time.setAttribute('class', 'action text-right');
 
    var timeText = obj.time_estimated;
    var timeTextNode = document.createTextNode(timeText);
