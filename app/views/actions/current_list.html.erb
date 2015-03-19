@@ -1,7 +1,6 @@
 <%=  render 'layouts/header'%>
 <div class="container">
-	<h1 class="col-sm-offset-3 col-sm-6">With <%= @time_est %> minutes you could: </h1>
-
+	<h1 class="col-sm-offset-3 col-sm-9 time-header">With <%= @time_est %> minutes you could: </h1>
 
 
 	<% @priority_actions.each do |priority| %>
@@ -9,10 +8,8 @@
 			<h3 class="action" id="<%= priority.id %>"><%= priority.action_name%></h3>
 			<div class="clicker-div">
 				<p>Notes: <%= priority.notes%></p>
-				<p>Time: <%= priority.time_estimated%></p>
+				<p class="action-time">Time: <%= priority.time_estimated%></p>
 			</div>
 		</div>
 	<% end %>
-
-
 </div> <!-- end -->

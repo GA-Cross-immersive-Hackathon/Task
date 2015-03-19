@@ -1,8 +1,11 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 #prod-name{
     font-size: 10em;
+    font-family: 'Futura';
+    color:  #070173;
 }
 
 #stopwatch{
@@ -14,10 +17,38 @@
     overflow: auto;
 }
 
+.time-header{
+	color: #070173;
+	font-size: 30px;
+}
+
 .alert {
     font-style: helvetica;
     font-weight: 3em;
     color: red;
+}
+
+.add-task{
+	background: white;
+	border: 1px solid #070173;
+	color: #070173;
+		&:hover{
+			background: #070173;
+			border: 1px solid white;
+			color: white;
+		}
+}
+
+.sub-sentence{
+	color: #9B9B9B;
+	font-family: 'Avenir Next Regular';
+	font-size: 30px;
+}
+
+.productively{
+	font-family: 'Avenir Next Regular';
+	color:#0097FA ;
+	font-size: 30px;
 }
 
 .jumbotron{
@@ -31,19 +62,32 @@
 
 
 #brand-name{
-	font-size: 1.5em;
+	font-size: 30px;
+	color:#070173;
+	font-family: 'Futura';
+}
+
+.signup, .login{
 	color:white;
+	background: #070173;
+	border: 1px solid white;
+	margin-top: 10px;
+	outline: white;
+	&:hover{
+			background: white;
+			color: #070173;
+			border: 1px solid #070173;
+			margin-top: 10px;
+	}
 }
 
 #main-nav{
-	background-color: #070173;
+background: white;
+border-bottom: 1px solid #070173;
 	>ul{
 		>li{
 			>a {
-			color:white;
-				&:focus{
-					background-color: #BBE5f3;
-				}
+			color:#070173;
 			}
 		}
 	}
@@ -54,7 +98,10 @@
 .dropdown-menu {
 	> li {
 	  font-size: 1.01em;
-	  }
+	  	>a {
+			color:#070173;
+		}
+	}
 }
 
 #menu-button, #add-task-button{
@@ -72,14 +119,14 @@ ul{
 	}
 }
 
-.show {
-	display: block;
-}
-
 .action-div{
 	cursor: pointer;
 	margin-bottom: 10px;
 }	
+
+.modal-backdrop{
+	background-color: black;
+}
 
 #btn-0{
 	background-color: #96f2fc;

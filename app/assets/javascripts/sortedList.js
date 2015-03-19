@@ -8,4 +8,13 @@ $(function(){
             $(this).children('.clicker-div').slideToggle("slow")
        	})
    	 }
+     $('.clicker-div').css('background-color', '#00B4FF');
+     $('.clicker-div').css('width', 200);
+     $('.clicker-div').css('margin-left', 'auto');
+     $('.clicker-div').css('margin-right', 'auto');
+     $('.clicker-div').css('padding', 2);
+     $('.clicker-div').css('border-radius', 3);
+  // if('.action-time' === 5){
+  // 	$('.action-time').css('background-color','#96f2fc' );
+  // }
 });
