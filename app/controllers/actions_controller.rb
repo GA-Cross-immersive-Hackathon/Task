@@ -13,7 +13,7 @@ class ActionsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @actions = @user.actions.create(action_params)
     if @actions
       render json: {status: "success"}
@@ -23,8 +23,9 @@ class ActionsController < ApplicationController
   end
 
   def current_list
-    time_est = params[:time_available]
-    actions = @user.actions.where("time_estimated <= ?", time_est)
+    # binding.pry
+    @time_est = params[:time_available]
+    actions = @user.actions.where("time_estimated <= ?", @time_est)
     # these are priority actions that are at or below the time available
     @priority_actions = actions.where(priority: true)
     nonpriority = actions.where(priority: false)

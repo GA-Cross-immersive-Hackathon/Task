@@ -1,13 +1,8 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-body{
-	background: rgba(187,229,243, .4)
-}
 #prod-name{
     font-size: 10em;
-    color: white;
 }
 
 #stopwatch{
@@ -25,26 +20,27 @@ body{
     color: red;
 }
 
+.jumbotron{
+	background: white;
+}
 
 .new-task-time, .new-task-name{
     font-size: 1.3em;
     margin-top: 20px;
 }
 
-#top-nav-main{
-	background: #00557C;
-}
 
 #brand-name{
-	color:white;
 	font-size: 1.5em;
+	color:white;
 }
 
 #main-nav{
+	background-color: #070173;
 	>ul{
 		>li{
 			>a {
-				color:white;
+			color:white;
 				&:focus{
 					background-color: #BBE5f3;
 				}
@@ -57,23 +53,71 @@ body{
 .navbar-nav .open 
 .dropdown-menu {
 	> li {
-			> a {
-				&:hover {
-				color: white;
-			}
 	  font-size: 1.01em;
 	  }
-	}
 }
 
 #menu-button, #add-task-button{
 	font-size: 1.05em;
 }
 
-.jumbotron{
-	background: #81C1DC;
+input[type=text], input[type=password],input[type=email]{
+	margin-bottom: 5px;
+	outline: none;
 }
 
-input[type=text]{
-	margin-bottom: 5px;
+ul{
+	>li{
+		list-style: none;
+	}
+}
+
+.show {
+	display: block;
+}
+
+.action-div{
+	cursor: pointer;
+	margin-bottom: 10px;
+}	
+
+#btn-0{
+	background-color: #96f2fc;
+	color: white;
+	outline: none;
+}
+#btn-1{
+	background-color: #00ddff;
+	color: white;
+	outline: none;
+}
+#btn-2{
+	background-color: #00b4ff;
+	color: white;
+	outline: none;
+}
+#btn-3{
+	background-color: #2366d0;
+	color: white;
+	outline: none;
+}
+#btn-4{
+	background-color: #0205da;
+	color: white;
+	outline: none;
+}
+#btn-5{
+	background-color: #070173;
+	color: white;
+	outline: none;
+}
+#btn-6{
+	background-color: #2b015c;
+	color: white;
+	outline: none;
+}
+#btn-7{
+	background-color: #E0336A;
+	color: white;
+	outline: none;
 }

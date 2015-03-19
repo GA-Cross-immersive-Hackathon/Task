@@ -2,8 +2,8 @@
 <!-- foreach through list add listener and display name and est. time -->
 <ul class="container">
 <% @actions.each do |action| %>
-  <li><h3><%= action.action_name%></h3></li>
-    <p><%= action.notes%></p>
-    <p><%= action.time_estimated%></p>
+  <li class="h3"><%= action.action_name%></li>
+    <li class="col-sm-offset-1"><%= action.notes%></li>
+    <li class="col-sm-offset-1"><%= action.time_estimated%></li>
 <% end %>
 </ul>
