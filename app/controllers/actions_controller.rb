@@ -2,12 +2,14 @@ class ActionsController < ApplicationController
   before_action :find_user
 
   def index
-    @actions = @user.actions
+    actions = @user.actions
+    @all_sorted_actions = actions.order("time_estimated")
+    binding.pry
     render :index
   end
 
   def new
-    @actions = Action.new
+    @actions = @user.actions.new
   end
 
   def create
@@ -25,10 +27,11 @@ class ActionsController < ApplicationController
     @time_est = params[:time_available]
     actions = @user.actions.where("time_estimated <= ?", @time_est)
     # these are priority actions that are at or below the time available
-    @priority_actions = actions.where(:priority == true)
-    nonpriority = actions.where(:priority == false)
+    @priority_actions = actions.where(priority: true)
+    nonpriority = actions.where(priority: false)
     # these are the nonpriority actions that are at or below the time available
     @sorted_actions = nonpriority.order("time_estimated")
+    binding.pry
   end
 
   private
