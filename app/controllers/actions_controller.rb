@@ -9,6 +9,7 @@ class ActionsController < ApplicationController
 
   def new
     @actions = @user.actions.new
+    render :new
   end
 
   def create
