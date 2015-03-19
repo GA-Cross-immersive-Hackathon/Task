@@ -4,7 +4,6 @@ class ActionsController < ApplicationController
   def index
     actions = @user.actions
     @all_sorted_actions = actions.order("time_estimated")
-    binding.pry
     render :index
   end
 
@@ -23,7 +22,6 @@ class ActionsController < ApplicationController
   end
 
   def current_list
-    # binding.pry
     @time_est = params[:time_available]
     actions = @user.actions.where("time_estimated <= ?", @time_est)
     # these are priority actions that are at or below the time available
@@ -31,7 +29,6 @@ class ActionsController < ApplicationController
     nonpriority = actions.where(priority: false)
     # these are the nonpriority actions that are at or below the time available
     @sorted_actions = nonpriority.order("time_estimated")
-    binding.pry
   end
 
   private

@@ -1,7 +1,7 @@
 <%=  render 'layouts/header' %>
 <!-- foreach through list add listener and display name and est. time -->
 <ul class="container">
-<% @actions.each do |action| %>
+<% @all_sorted_actions.each do |action| %>
   <li class="h3"><%= action.action_name%></li>
     <li class="col-sm-offset-1"><%= action.notes%></li>
     <li class="col-sm-offset-1"><%= action.time_estimated%></li>
