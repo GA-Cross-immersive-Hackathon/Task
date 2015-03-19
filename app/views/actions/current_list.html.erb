@@ -12,6 +12,9 @@
 				<p>Notes: <%= priority.notes%></p>
 				<p>Time: <%= priority.time_estimated%></p>
 				<p>PRIORITY!</p>
+
+				<button type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+
 			</div>
 		</div>
 	<% end %>
@@ -27,6 +30,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
+				<button type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 50 %>
@@ -36,6 +40,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
+				<button type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 40 %>
@@ -45,6 +50,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
+				<button type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 30 %>
@@ -54,6 +60,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
+				<button type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 20 %>
@@ -63,6 +70,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
+				<button type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 10 %>
@@ -72,6 +80,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
+				<button type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 5 %>
@@ -81,6 +90,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
+				<button type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% end %>
@@ -89,4 +99,17 @@
 		collapsableList();
 	</script>
 
+</div>
+
+<!-- TIMER MODAL -->
+
+<div class="modal fade" id="choosingTaskModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">[name of action]</h4>
+      </div>
+    </div>
+  </div>
 </div>
