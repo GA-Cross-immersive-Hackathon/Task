@@ -32,6 +32,13 @@ class ActionsController < ApplicationController
     @sorted_actions = nonpriority.order("time_estimated").reverse
   end
 
+  def update
+    # if 'start' find the corresponding action and update the column time_started
+    # if 'end' find the corresponding action and update the column time_finished
+    # and calculate the time it took to accomplish task
+
+  end
+
   private
 
   def action_params
