@@ -82,6 +82,63 @@ ul{
 	cursor: pointer;
 	margin-bottom: 10px;
 }
+//place "time-foot" on current_list.html.erb
+.time-foot {
+  font-size: 1em;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+.time-foot {
+  font-size: 1em;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+
+// color divs on current_list.html.erb
+.priority {
+  background-color: #E0336A;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.sixty {
+  background-color: #2B015C;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.fifty {
+  background-color: #070173;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.forty {
+  background-color: #0205DA;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.thirty {
+  background-color: #2366D0;
+  font-family: 'Lato', sans-serif;
+  color: white;
+}
+.twenty {
+  background-color: #00B4FF;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+.ten {
+  background-color: #00DDFF;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+.five {
+  background-color: #96F2FC;
+  font-family: 'Lato', sans-serif;
+  color: #070173;
+}
+
+.priority {
+  max-width: 40%;
+}
 
 #btn-0{
 	background-color: #96f2fc;

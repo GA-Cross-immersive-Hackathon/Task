@@ -25,10 +25,10 @@ class ActionsController < ApplicationController
     @time_est = params[:time_available]
     actions = @user.actions.where("time_estimated <= ?", @time_est)
     # these are priority actions that are at or below the time available
-    @priority_actions = actions.where(priority: true)
+    @priority_actions = actions.where(priority: true).order("time_estimated").reverse
     nonpriority = actions.where(priority: false)
     # these are the nonpriority actions that are at or below the time available
-    @sorted_actions = nonpriority.order("time_estimated")
+    @sorted_actions = nonpriority.order("time_estimated").reverse
   end
 
   private

@@ -1,4 +1,4 @@
-console.log('we are connected to sortedList.js');
+console.log('we are connected to current_list.js');
 var collapsableList = function() {
   // $('.clicker-div').hide();
   var actionDivs = $('.action-div');
