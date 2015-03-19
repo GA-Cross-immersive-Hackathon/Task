@@ -49,8 +49,8 @@
 	}
 }
 
-.navbar-default 
-.navbar-nav .open 
+.navbar-default
+.navbar-nav .open
 .dropdown-menu {
 	> li {
 	  font-size: 1.01em;
@@ -75,11 +75,13 @@ ul{
 .show {
 	display: block;
 }
-
+.clicker-div{
+  display: none;
+}
 .action-div{
 	cursor: pointer;
 	margin-bottom: 10px;
-}	
+}
 
 #btn-0{
 	background-color: #96f2fc;
