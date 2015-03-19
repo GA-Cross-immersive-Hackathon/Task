@@ -4,7 +4,7 @@ class ActionsController < ApplicationController
   def index
     actions = @user.actions
     @all_sorted_actions = actions.order("time_estimated")
-    binding.pry
+    # binding.pry
     render :index
   end
 
