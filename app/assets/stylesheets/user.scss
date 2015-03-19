@@ -1,11 +1,8 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 #prod-name{
     font-size: 10em;
-    font-family: 'Futura';
-    color:  #070173;
 }
 
 #stopwatch{
@@ -17,39 +14,18 @@
     overflow: auto;
 }
 
-.time-header{
-	color: #070173;
-	font-size: 30px;
-}
-
 .alert {
     font-style: helvetica;
     font-weight: 3em;
     color: red;
 }
 
-.add-task{
-	background: white;
-	border: 1px solid #070173;
-	color: #070173;
-		&:hover{
-			background: #070173;
-			border: 1px solid white;
-			color: white;
-		}
+// home/index.html.erb
+.header-current-time {
+  font-family: "futura";
+  font-style: 30px;
 }
 
-.sub-sentence{
-	color: #9B9B9B;
-	font-family: 'Avenir Next Regular';
-	font-size: 30px;
-}
-
-.productively{
-	font-family: 'Avenir Next Regular';
-	color:#0097FA ;
-	font-size: 30px;
-}
 
 .jumbotron{
 	background: white;
@@ -62,32 +38,19 @@
 
 
 #brand-name{
-	font-size: 30px;
-	color:#070173;
-	font-family: 'Futura';
-}
-
-.signup, .login{
+	font-size: 1.5em;
 	color:white;
-	background: #070173;
-	border: 1px solid white;
-	margin-top: 10px;
-	outline: white;
-	&:hover{
-			background: white;
-			color: #070173;
-			border: 1px solid #070173;
-			margin-top: 10px;
-	}
 }
 
 #main-nav{
-background: white;
-border-bottom: 1px solid #070173;
+	background-color: #070173;
 	>ul{
 		>li{
 			>a {
-			color:#070173;
+			color:white;
+				&:focus{
+					background-color: #BBE5f3;
+				}
 			}
 		}
 	}
@@ -98,10 +61,7 @@ border-bottom: 1px solid #070173;
 .dropdown-menu {
 	> li {
 	  font-size: 1.01em;
-	  	>a {
-			color:#070173;
-		}
-	}
+	  }
 }
 
 #menu-button, #add-task-button{
@@ -119,20 +79,30 @@ ul{
 	}
 }
 
-<<<<<<< HEAD
-=======
 .show {
 	display: block;
 }
 .clicker-div{
   display: none;
 }
->>>>>>> bc64fa89b1232bf37575623b07bbd7d18093bead
 .action-div{
 	cursor: pointer;
 	margin-bottom: 10px;
 }
 
+.action-div-add {
+	cursor: pointer;
+	margin-bottom: 10px;
+  padding: 1%;
+  >h3 {
+    font-size: 1.5em;
+    display: inline;
+  }
+  >p {
+    display: inline;
+    margin-left: 65%;
+  }
+}
 //
 .doButton {
   margin-bottom: 2%;
@@ -203,10 +173,6 @@ ul{
 .addTaskButton {
   font-family: 'Lato', sans-serif;
   color: #070173;
-}
-
-.modal-backdrop{
-	background-color: black;
 }
 
 #btn-0{
