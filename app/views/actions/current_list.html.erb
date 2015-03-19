@@ -1,30 +1,115 @@
 <%=  render 'layouts/header'%>
 <div class="container">
-	<h1 class="col-sm-offset-3 col-sm-6">With <%= @time_est %> minutes you could: </h1>
+	<h1 class="col-sm-offset-3 col-sm-9">With <%= @time_est %> minutes you could: </h1>
 
 
 
 	<% @priority_actions.each do |priority| %>
-	<div class="action-div col-sm-offset-2 col-sm-8 text-center">
+	<div class="action-div priority col-sm-offset-2 col-sm-8 text-left">
 			<h3 class="action" id="<%= priority.id %>"><%= priority.action_name%></h3>
+			<p class= "time-foot-w text-right"><%=priority.time_estimated%></p>
 			<div class="clicker-div">
 				<p>Notes: <%= priority.notes%></p>
 				<p>Time: <%= priority.time_estimated%></p>
+				<p>PRIORITY!</p>
+
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+
 			</div>
 		</div>
 	<% end %>
 
-	<% @sorted_actions.each do |priority| %>
-	<div class="action-div col-sm-offset-2 col-sm-8 text-center">
-			<h3 class="action" id="<%= priority.id %>"><%= priority.action_name%></h3>
+	<!--if time_est is: 60,50,40,30,20,10,5  -->
+
+	<% @sorted_actions.each do |sorted| %>
+
+	<% if sorted.time_estimated === 60 %>
+		<div class="action-div sixty col-sm-offset-2 col-sm-8 text-left">
+			<h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+			<p class= "time-foot text-right"><%=sorted.time_estimated%></p>
 			<div class="clicker-div">
-				<p>Notes: <%= priority.notes%></p>
-				<p>Time: <%= priority.time_estimated%></p>
+				<p>Notes: <%= sorted.notes%></p>
+				<p>Time: <%= sorted.time_estimated%></p>
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
+	<% elsif sorted.time_estimated === 50 %>
+		<div class="action-div fifty col-sm-offset-2 col-sm-8 text-left">
+			<h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+			<p class= "time-foot text-right"><%=sorted.time_estimated%></p>
+			<div class="clicker-div">
+				<p>Notes: <%= sorted.notes%></p>
+				<p>Time: <%= sorted.time_estimated%></p>
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+			</div>
+		</div>
+	<% elsif sorted.time_estimated === 40 %>
+		<div class="action-div forty col-sm-offset-2 col-sm-8 text-left">
+			<h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+			<p class= "time-foot text-right"><%=sorted.time_estimated%></p>
+			<div class="clicker-div">
+				<p>Notes: <%= sorted.notes%></p>
+				<p>Time: <%= sorted.time_estimated%></p>
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+			</div>
+		</div>
+	<% elsif sorted.time_estimated === 30 %>
+		<div class="action-div thirty col-sm-offset-2 col-sm-8 text-left">
+			<h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+			<p class= "time-foot-w text-right"><%=sorted.time_estimated%></p>
+			<div class="clicker-div">
+				<p>Notes: <%= sorted.notes%></p>
+				<p>Time: <%= sorted.time_estimated%></p>
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+			</div>
+		</div>
+	<% elsif sorted.time_estimated === 20 %>
+		<div class="action-div twenty col-sm-offset-2 col-sm-8 text-left">
+			<h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+			<p class= "time-foot-w text-right"><%=sorted.time_estimated%></p>
+			<div class="clicker-div">
+				<p>Notes: <%= sorted.notes%></p>
+				<p>Time: <%= sorted.time_estimated%></p>
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+			</div>
+		</div>
+	<% elsif sorted.time_estimated === 10 %>
+		<div class="action-div ten col-sm-offset-2 col-sm-8 text-left">
+			<h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+			<p class= "time-foot-w text-right"><%=sorted.time_estimated%></p>
+			<div class="clicker-div">
+				<p>Notes: <%= sorted.notes%></p>
+				<p>Time: <%= sorted.time_estimated%></p>
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+			</div>
+		</div>
+	<% elsif sorted.time_estimated === 5 %>
+		<div class="action-div five col-sm-offset-2 col-sm-8 text-left">
+			<h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+			<p class= "time-foot-w text-right"><%=sorted.time_estimated%></p>
+			<div class="clicker-div">
+				<p>Notes: <%= sorted.notes%></p>
+				<p>Time: <%= sorted.time_estimated%></p>
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+			</div>
+		</div>
+	<% end %>
 	<% end %>
 	<script charset="utf-8">
 		collapsableList();
 	</script>
 
+</div>
+
+<!-- TIMER MODAL -->
+
+<div class="modal fade" id="choosingTaskModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">[name of action]</h4>
+      </div>
+    </div>
+  </div>
 </div>
