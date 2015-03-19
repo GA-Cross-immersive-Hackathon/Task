@@ -1,5 +1,17 @@
 <%=  render 'layouts/header' %>
 <!-- foreach through list add listener and display name and est. time -->
+
+<div class="container col-sm-offset-3 col-sm-6">
+	<h1 class="col-sm-offset-3 col-sm-9 time-header">My List</h1>
+	<ul class="col-sm-offset-3 col-sm-9">
+	<% @actions.each do |action| %>
+	  <li class="h4"><%= action.action_name%></li>
+	    <li>Notes: <%= action.notes%></li>
+	    <li>Time: <%= action.time_estimated%></li>
+	<% end %>
+	</ul>
+</div>
+
 <ul class="container">
 <% @all_sorted_actions.each do |action| %>
   <li class="h3"><%= action.action_name%></li>
@@ -7,3 +19,4 @@
     <li class="col-sm-offset-1"><%= action.time_estimated%></li>
 <% end %>
 </ul>
+

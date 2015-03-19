@@ -1,6 +1,10 @@
 <%=  render 'layouts/header'%>
 <div class="container">
+
+
+
 	<h1 class="col-sm-offset-3 col-sm-9">With <%= @time_est %> minutes you could: </h1>
+
 
 
 
@@ -10,6 +14,13 @@
 			<p class= "time-foot-w text-right"><%=priority.time_estimated%></p>
 			<div class="clicker-div">
 				<p>Notes: <%= priority.notes%></p>
+
+				<p class="action-time">Time: <%= priority.time_estimated%></p>
+			</div>
+		</div>
+	<% end %>
+</div> <!-- end -->
+
 				<p>Time: <%= priority.time_estimated%></p>
 				<p>PRIORITY!</p>
 
@@ -113,3 +124,4 @@
     </div>
   </div>
 </div>
+>>>>>>> bc64fa89b1232bf37575623b07bbd7d18093bead
