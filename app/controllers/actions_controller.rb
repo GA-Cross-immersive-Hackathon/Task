@@ -36,6 +36,7 @@ class ActionsController < ApplicationController
   end
 
   def update
+    # check params.update, if === start, update 
     # if 'start' find the corresponding action and update the column time_started
     # if 'end' find the corresponding action and update the column time_finished
     # and calculate the time it took to accomplish task

@@ -14,9 +14,8 @@
 			<p class= "time-foot-w text-right"><%=priority.time_estimated%></p>
 			<div class="clicker-div">
 				<p>Notes: <%= priority.notes%></p>
-
 				<p class="action-time">Time: <%= priority.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task" data-whatever="<%=priority%>">Do this task.</button>
 			</div>
 		</div>
 	<% end %>
@@ -100,9 +99,7 @@
 	<% end %>
 	<script charset="utf-8">
 		collapsableList();
-		$('.action-entire-list').on('click', '.delete_action', function() {
-    $(this).parent().remove();
-  });
+		startTimer();
 	</script>
 
 </div>
@@ -114,11 +111,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">[name of action]</h4>
+        <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
 			<div class="modal-body ">
+				<script charset="utf-8">
+					// progressBar();
 
+				</script>
 			</div>
     </div>
   </div>
 </div>
+<script charset="utf-8">
+	dynamicModal();
+</script>
