@@ -6,7 +6,7 @@
     <li class="h3"><%= action.action_name%></li>
     <li><%= action.notes%></li>
     <li><%= action.time_estimated%></li>
-    <%= link_to 'X', action, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_action' %>
+    <%= link_to 'X', action, method: :delete, :remote => true, :class => 'delete_action' %>
     </div>
 <% end %>
 </ul>
