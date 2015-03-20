@@ -19,10 +19,46 @@ var collapsableList = function() {
 var startTimer = function() {
 
   $('.doButton').on('click', function() {
+    var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/token.json');
+        xhr.addEventListener('load', function() {
+          var token = xhr.responseText;
+          var priorityCheckbox = document.getElementById('priority-check');
+          if (priorityCheckbox.checked === true) {
+            var priorityValue = true;
+          } else {
+            var priorityValue = false
+          }
+          var action_object = {
+            action_name : $('#action-name').val(),
+            notes : $('#action-notes').val(),
+            time_estimated : clicked,
+            elaborate : elaborate,
+            priority : priorityValue,
+            authenticity_token: token
+           }
+
+    var xhr2 = new XMLHttpRequest();
+          xhr2.open('PUT', '/actions');
+          xhr2.setRequestHeader('Content-Type', "application/json;charset=UTF-8")
+          xhr2.addEventListener('load', function() {
+            var statusResponse = JSON.parse(xhr2.responseText);
+            if (statusResponse.status === "success") {
+                renderAction(action_object);
+            } else {
+              alert("there was an error saving your data")
+            }
+          });
+          xhr2.send(JSON.stringify(action_object));
+        });
+
+    xhr.send();
+ }
+
     // var h3 = $(this).parent().parent().children('.action')
     // var action = (h3.text());
     //  make an ajax call for get token, then ajax to update the server. the object being sent should
-    // have an update key "update : start"  
+    // have an update key "update : start"
 
   });
 }
