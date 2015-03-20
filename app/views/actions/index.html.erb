@@ -2,9 +2,17 @@
 <!-- foreach through list add listener and display name and est. time -->
 <ul class="container">
 <% @all_sorted_actions.each do |action| %>
-  <li class="h3"><%= action.action_name%></li>
+    <div class="action-entire-list">
+    <li class="h3"><%= action.action_name%></li>
     <li><%= action.notes%></li>
     <li><%= action.time_estimated%></li>
+    <%= link_to 'X', action, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, :class => 'delete_action' %>
+    </div>
 <% end %>
 </ul>
 
+<script type="text/javascript">
+  $('.action-entire-list').on('click', '.delete_action', function() {
+    $(this).parent().remove();
+  });
+</script>
