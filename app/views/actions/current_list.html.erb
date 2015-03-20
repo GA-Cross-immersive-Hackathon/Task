@@ -100,6 +100,9 @@
 	<% end %>
 	<script charset="utf-8">
 		collapsableList();
+		$('.action-entire-list').on('click', '.delete_action', function() {
+    $(this).parent().remove();
+  });
 	</script>
 
 </div>

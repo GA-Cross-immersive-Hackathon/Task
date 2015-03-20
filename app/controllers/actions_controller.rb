@@ -44,7 +44,6 @@ class ActionsController < ApplicationController
 
   def destroy
     @action = Action.find(params[:id])
-    # binding.pry
     @action.destroy
   end
 
