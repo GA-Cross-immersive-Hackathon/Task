@@ -3,7 +3,12 @@ class ActionsController < ApplicationController
 
   def index
     actions = @user.actions
-    @all_sorted_actions = actions.order("time_estimated")
+    # these are priority actions
+    @priority_actions = actions.where(priority: true).order("time_estimated").reverse
+    nonpriority = actions.where(priority: false)
+    # these are the nonpriority actions
+    @sorted_actions = nonpriority.order("time_estimated").reverse
+    # @all_sorted_actions = actions.order("time_estimated")
 
     # binding.pry
 
@@ -46,6 +51,11 @@ class ActionsController < ApplicationController
   def destroy
     @action = Action.find(params[:id])
     @action.destroy
+    if @action.destroy
+      render json: {status: "success"}
+    else
+      render json: {status: "error"}
+    end
   end
 
   private

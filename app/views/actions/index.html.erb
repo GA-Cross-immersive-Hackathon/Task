@@ -1,17 +1,143 @@
 <%=  render 'layouts/header' %>
 <!-- foreach through list add listener and display name and est. time -->
-<ul class="container">
-<% @all_sorted_actions.each do |action| %>
-    <div class="action-entire-list">
-    <li class="h3"><%= action.action_name%></li>
-    <li><%= action.notes%></li>
-    <li><%= action.time_estimated%></li>
-    <%= link_to 'X', action, method: :delete, :remote => true, :class => 'delete_action' %>
+
+<div class="container">
+
+    <h1 class="col-sm-offset-3 col-sm-9">Here are all your tasks: </h1>
+
+  <!-- if action is a priority -->
+
+  <% @priority_actions.each do |priority| %>
+  <div class="action-div action-entire-list priority col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
+      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+      <h3 class="action" id="<%= priority.id %>"><%= priority.action_name%></h3>
+      <p class= "time-foot-w text-right"><%=priority.time_estimated%></p>
+      <div class="clicker-div">
+        <p>Notes: <%= priority.notes%></p>
+
+        <p class="action-time">Time: <%= priority.time_estimated%></p>
+      </div>
     </div>
-<% end %>
-</ul>
+  <% end %>
+
+  <% @sorted_actions.each do |sorted| %>
+
+  <% if sorted.time_estimated === 60 %>
+    <div class="action-div action-entire-list sixty col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
+      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+      <h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+      <p class= "time-foot text-right"><%=sorted.time_estimated%></p>
+      <div class="clicker-div">
+        <p>Notes: <%= sorted.notes%></p>
+        <p>Time: <%= sorted.time_estimated%></p>
+      </div>
+    </div>
+  <% elsif sorted.time_estimated === 50 %>
+    <div class="action-div action-entire-list fifty col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
+      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+      <h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+      <p class= "time-foot text-right"><%=sorted.time_estimated%></p>
+      <div class="clicker-div">
+        <p>Notes: <%= sorted.notes%></p>
+        <p>Time: <%= sorted.time_estimated%></p>
+      </div>
+    </div>
+  <% elsif sorted.time_estimated === 40 %>
+    <div class="action-div action-entire-list forty col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
+      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+      <h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+      <p class= "time-foot text-right"><%=sorted.time_estimated%></p>
+      <div class="clicker-div">
+        <p>Notes: <%= sorted.notes%></p>
+        <p>Time: <%= sorted.time_estimated%></p>
+      </div>
+    </div>
+  <% elsif sorted.time_estimated === 30 %>
+    <div class="action-div action-entire-list thirty col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
+      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+      <h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+      <p class= "time-foot-w text-right"><%=sorted.time_estimated%></p>
+      <div class="clicker-div">
+        <p>Notes: <%= sorted.notes%></p>
+        <p>Time: <%= sorted.time_estimated%></p>
+      </div>
+    </div>
+  <% elsif sorted.time_estimated === 20 %>
+    <div class="action-div action-entire-list twenty col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
+      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+      <h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+      <p class= "time-foot-w text-right"><%=sorted.time_estimated%></p>
+      <div class="clicker-div">
+        <p>Notes: <%= sorted.notes%></p>
+        <p>Time: <%= sorted.time_estimated%></p>
+      </div>
+    </div>
+  <% elsif sorted.time_estimated === 10 %>
+    <div class="action-div action-entire-list ten col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
+      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+      <h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+      <p class= "time-foot-w text-right"><%=sorted.time_estimated%></p>
+      <div class="clicker-div">
+        <p>Notes: <%= sorted.notes%></p>
+        <p>Time: <%= sorted.time_estimated%></p>
+      </div>
+    </div>
+  <% elsif sorted.time_estimated === 5 %>
+    <div class="action-div action-entire-list five col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
+      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+      <h3 class="action" id="<%= sorted.id %>"><%= sorted.action_name%></h3>
+      <p class= "time-foot-w text-right"><%=sorted.time_estimated%></p>
+      <div class="clicker-div">
+        <p>Notes: <%= sorted.notes%></p>
+        <p>Time: <%= sorted.time_estimated%></p>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
+
+  <script charset="utf-8">
+    collapsableList();
+    $('.action-entire-list').on('click', '.delete_action', function() {
+    $(this).parent().remove();
+  });
+  </script>
+
 
 <script type="text/javascript">
+  var deleteAction = function(e) {
+    console.log("ITS WORKING!")
+   var xhr = new XMLHttpRequest();
+       xhr.open('GET', '/token.json');
+       xhr.addEventListener('load', function() {
+         var token = xhr.responseText;
+         var action_object = {
+           id: $(e.currentTarget).attr("id"),
+           authenticity_token: token
+          }
+
+   var xhr2 = new XMLHttpRequest();
+         xhr2.open('DELETE', '/actions/' + $(e.currentTarget).attr("id"));
+         xhr2.setRequestHeader('Content-Type', "application/json;charset=UTF-8")
+         xhr2.addEventListener('load', function() {
+           var statusResponse = JSON.parse(xhr2.responseText);
+           console.log(statusResponse.status)
+           if (statusResponse.status === "success") {
+               $(e.currentTarget).remove();
+           } else {
+             alert("there was an error saving your data")
+           }
+         });
+         xhr2.send(JSON.stringify(action_object));
+       });
+
+   xhr.send();
+  };
+
+  $('.action-entire-list').on('dragstart', function(e) {
+    deleteAction(e);
+  });
+
   $('.action-entire-list').on('click', '.delete_action', function() {
     $(this).parent().remove();
   });
