@@ -42,6 +42,11 @@ class ActionsController < ApplicationController
 
   end
 
+  def destroy
+    @action = Action.find(params[:id])
+    @action.destroy
+  end
+
   private
 
   def action_params
