@@ -45,6 +45,11 @@ class ActionsController < ApplicationController
   def destroy
     @action = Action.find(params[:id])
     @action.destroy
+    if @action.destroy
+      render json: {status: "success"}
+    else
+      render json: {status: "error"}
+    end
   end
 
   private

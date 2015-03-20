@@ -2,7 +2,7 @@
 <!-- foreach through list add listener and display name and est. time -->
 <ul class="container">
 <% @all_sorted_actions.each do |action| %>
-    <div class="action-entire-list">
+    <div class="action-entire-list" draggable="true" id="<%= action.id %>">
     <li class="h3"><%= action.action_name%></li>
     <li><%= action.notes%></li>
     <li><%= action.time_estimated%></li>
@@ -12,6 +12,39 @@
 </ul>
 
 <script type="text/javascript">
+  var deleteAction = function(e) {
+    console.log("ITS WORKING!")
+   var xhr = new XMLHttpRequest();
+       xhr.open('GET', '/token.json');
+       xhr.addEventListener('load', function() {
+         var token = xhr.responseText;
+         var action_object = {
+           id: $(e.currentTarget).attr("id"),
+           authenticity_token: token
+          }
+
+   var xhr2 = new XMLHttpRequest();
+         xhr2.open('DELETE', '/actions/' + $(e.currentTarget).attr("id"));
+         xhr2.setRequestHeader('Content-Type', "application/json;charset=UTF-8")
+         xhr2.addEventListener('load', function() {
+           var statusResponse = JSON.parse(xhr2.responseText);
+           console.log(statusResponse.status)
+           if (statusResponse.status === "success") {
+               $(e.currentTarget).remove();
+           } else {
+             alert("there was an error saving your data")
+           }
+         });
+         xhr2.send(JSON.stringify(action_object));
+       });
+
+   xhr.send();
+}
+
+  $('.action-entire-list').on('dragstart', function(e) {
+    deleteAction(e);
+  });
+
   $('.action-entire-list').on('click', '.delete_action', function() {
     $(this).parent().remove();
   });
