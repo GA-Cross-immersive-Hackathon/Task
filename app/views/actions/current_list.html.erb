@@ -15,7 +15,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= priority.notes%></p>
 				<p class="action-time">Time: <%= priority.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task" data-whatever="<%=priority%>">Do this task.</button>
+				<button class="doButton" id="<%=priority.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task" data-whatever="<%=priority%>">Do this task.</button>
 			</div>
 		</div>
 	<% end %>
@@ -32,7 +32,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" id="<%=sorted.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 50 %>
@@ -42,7 +42,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" id="<%=sorted.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 40 %>
@@ -52,7 +52,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" id="<%=sorted.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 30 %>
@@ -62,7 +62,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" id="<%=sorted.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 20 %>
@@ -72,7 +72,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" id="<%=sorted.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 10 %>
@@ -82,7 +82,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" id="<%=sorted.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% elsif sorted.time_estimated === 5 %>
@@ -92,14 +92,14 @@
 			<div class="clicker-div">
 				<p>Notes: <%= sorted.notes%></p>
 				<p>Time: <%= sorted.time_estimated%></p>
-				<button class="doButton" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" id="<%=sorted.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% end %>
 	<% end %>
 	<script charset="utf-8">
 		collapsableList();
-		startTimer();
+		grabStartButtons();
 	</script>
 
 </div>
@@ -116,25 +116,12 @@
 			<div class="modal-body ">
 				<script charset="utf-8">
 					// progressBar();
-
 				</script>
+				<button type="button" class="btn btn-default stop-task">Finished</button>
 			</div>
     </div>
   </div>
 </div>
 <script charset="utf-8">
-$('#choosingTaskModal').on('show.bs.modal', function (event) {
-	// var h3 = $(this).parent().parent().children('.action')
-	// var action = (h3.text());
-	var button = $(event.relatedTarget)
-	console.log(button)
-	console.log(button.data) // Button that triggered the modal
-	var task = button.data('whatever') // Extract info from data-* attributes
-	// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-	// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-	var modal = $(this)
-	modal.find('.modal-title').text('You have started task:' + task)
-	// modal.find('.modal-body input').val(recipient)
-})
-		// dynamicModal();
+	grabStopButtons();
 </script>
