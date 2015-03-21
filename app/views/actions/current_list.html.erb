@@ -15,7 +15,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= priority.notes%></p>
 				<p class="action-time">Time: <%= priority.time_estimated%></p>
-				<button class="doButton" id="<%=priority.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task" data-whatever="<%=priority%>">Do this task.</button>
+				<button class="doButton" id="<%=priority.id%>" type="button" data-toggle="modal" data-target="#choosingTaskModal" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% end %>
@@ -105,13 +105,13 @@
 </div>
 
 <!-- TIMER MODAL -->
-
-<div class="modal fade" id="choosingTaskModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop= "static">
+<% @sorted_actions.each do |sorted| %>
+<div class="modal fade" id="choosingTaskModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"></h4>
+        <h4 class="modal-title" id="myModalLabel"><%= sorted.action_name%></h4>
       </div>
 			<div class="modal-body ">
 				<div class="progressBar">
@@ -125,3 +125,7 @@
     </div>
   </div>
 </div>
+<% end %>
+<script charset="utf-8">
+	grabStopButtons();
+</script>

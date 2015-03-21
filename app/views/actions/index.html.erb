@@ -8,8 +8,8 @@
   <!-- if action is a priority -->
 
   <% @priority_actions.each do |priority| %>
-  <div class="action-div action-entire-list priority col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= sorted.id %>">
-      <p class="x text-right"><%= link_to 'X', sorted, method: :delete, :remote => true, :class => 'delete_action' %></p>
+  <div class="action-div action-entire-list priority col-sm-offset-2 col-sm-8 text-left" draggable="true" id="<%= priority.id %>">
+      <p class="x text-right"><%= link_to 'X', priority, method: :delete, :remote => true, :class => 'delete_action' %></p>
       <h3 class="action" id="<%= priority.id %>"><%= priority.action_name%></h3>
       <p class= "time-foot-w text-right"><%=priority.time_estimated%></p>
       <div class="clicker-div">

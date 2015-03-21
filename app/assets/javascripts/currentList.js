@@ -1,5 +1,6 @@
 console.log('we are connected to currentList.js');
 
+
 // function called on current_list.html.erb to enable collapse feature
 var collapsableList = function() {
   var actionDivs = $('.action-div');
@@ -10,7 +11,7 @@ var collapsableList = function() {
       actionDivs[i].addEventListener('mouseleave', function(evt) {
           $(this).children('.clicker-div').slideToggle("slow")
        });
-    }
+   }
 }
 
 // progress bar to be displayed while user is accomplishing task
@@ -32,15 +33,15 @@ var progressBar = function() {
     counter++;
   } else {
     counter = 0;
-    $('#hello').children().remove();
+    $('#progressBar').children().remove();
   }
-
 }
 
 function renderProgressBar(){
 	setInterval(progressBar(),1000)
 }
 renderProgressBar();
+
 
 // function to call the
 var startTimer = function(e) {
