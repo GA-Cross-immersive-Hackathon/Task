@@ -1,4 +1,7 @@
 console.log('we are connected to currentList.js');
+
+
+
 var collapsableList = function() {
   var actionDivs = $('.action-div');
   for (i=0; i < actionDivs.length; i++) {
@@ -8,11 +11,8 @@ var collapsableList = function() {
       actionDivs[i].addEventListener('mouseleave', function(evt) {
           $(this).children('.clicker-div').slideToggle("slow")
        });
-    }
+   }
 }
-
-
-console.log('test is connected')
 
 
 $(document).on("ready", function() {
@@ -48,13 +48,6 @@ function render(){
 render();
 
 });
-
-
-
-
-
-
-
 
 
 
@@ -148,4 +141,4 @@ var grabStopButtons = function() {
 //   })
 //
 // }
->>>>>>> master
+
