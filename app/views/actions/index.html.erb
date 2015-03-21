@@ -3,7 +3,7 @@
 <ul class="container">
 <% @all_sorted_actions.each do |action| %>
     <div class="action-entire-list">
-    <li class="h3"><%= action.action_name%></li>
+    <h3 class=""><%= action.action_name%></h3>
     <li><%= action.notes%></li>
     <li><%= action.time_estimated%></li>
     <%= link_to 'X', action, method: :delete, :remote => true, :class => 'delete_action' %>

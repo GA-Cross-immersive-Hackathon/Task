@@ -3,6 +3,13 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #prod-name{
     font-size: 10em;
+    color:  #070173;
+    font-family: 'Futura';
+}
+
+.modal-title{
+	color: #070173;
+	font-family:'Futura';
 }
 
 #stopwatch{
@@ -36,6 +43,30 @@
     margin-top: 20px;
 }
 
+.access{
+	background: #070173;
+	color: white;
+	margin-top: 20px;
+	border: 0px solid #070173;
+
+	&:hover{
+		background: white;
+		color: #070173;
+		margin-top: 20px;
+		border: 1px solid #070173;
+	}
+}
+
+.submission{
+	color: #070173;
+	background: white;
+	border: 1px solid #070173;
+	margin-top: 10px;
+		&:hover{
+			background: white;
+			border: 1px solid #070173;
+		}
+}
 
 #brand-name{
 	font-size: 1.5em;
@@ -49,7 +80,7 @@
 			>a {
 			color:white;
 				&:focus{
-					background-color: #BBE5f3;
+					background-color: #070173;
 				}
 			}
 		}
@@ -68,6 +99,18 @@
 	font-size: 1.05em;
 }
 
+#menu-list{
+	>ul{
+		>li{
+			>a{
+				&:hover{
+					background-color: #96f2fc;
+				}
+			}
+		}
+	}
+}
+
 input[type=text], input[type=password],input[type=email]{
 	margin-bottom: 5px;
 	outline: none;
@@ -77,6 +120,18 @@ ul{
 	>li{
 		list-style: none;
 	}
+}
+
+.sub-sentence{
+	font-family: 'Lato';
+	font-size: 30px;
+	color: #9B9B9B;
+}
+
+.productively{
+	font-family: 'Lato';
+	font-size: 30px;
+	color: #0097FA;
 }
 
 .show {
@@ -162,6 +217,14 @@ ul{
 .addTaskButton {
   font-family: 'Lato', sans-serif;
   color: #070173;
+  background: white;
+  border: 1px solid #070173;
+  	&:hover{
+  		background: #070173;
+  		color: white;
+  		border: 1px solid white;
+
+  	}
 }
 
 #btn-0{
