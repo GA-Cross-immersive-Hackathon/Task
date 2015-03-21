@@ -106,7 +106,7 @@
 
 <!-- TIMER MODAL -->
 
-<div class="modal fade" id="choosingTaskModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="choosingTaskModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop= "static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -114,14 +114,14 @@
         <h4 class="modal-title" id="myModalLabel"></h4>
       </div>
 			<div class="modal-body ">
+				<div class="progressBar">
+
+				</div>
 				<script charset="utf-8">
-					// progressBar();
+					renderProgressBar();
 				</script>
 				<button type="button" class="btn btn-default stop-task">Finished</button>
 			</div>
     </div>
   </div>
 </div>
-<script charset="utf-8">
-	grabStopButtons();
-</script>
