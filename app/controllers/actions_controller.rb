@@ -41,7 +41,6 @@ class ActionsController < ApplicationController
   end
 
   def update
-    # binding.pry
     @action = Action.find(params[:id])
     if params[:update] === "start"
       if @action.update({time_started:Time.now})
