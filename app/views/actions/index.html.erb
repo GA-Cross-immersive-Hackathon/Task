@@ -114,7 +114,6 @@
            id: $(e.currentTarget).attr("id"),
            authenticity_token: token
           }
-
    var xhr2 = new XMLHttpRequest();
          xhr2.open('DELETE', '/actions/' + $(e.currentTarget).attr("id"));
          xhr2.setRequestHeader('Content-Type', "application/json;charset=UTF-8")
@@ -129,14 +128,11 @@
          });
          xhr2.send(JSON.stringify(action_object));
        });
-
    xhr.send();
   };
-
   $('.action-entire-list').on('dragstart', function(e) {
     deleteAction(e);
   });
-
   $('.action-entire-list').on('click', '.delete_action', function() {
     $(this).parent().remove();
   });

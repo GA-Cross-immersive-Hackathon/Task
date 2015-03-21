@@ -1,14 +1,14 @@
-<section class="container-fluid">
+<section class="container">
   <p class="alert"><%= alert%></p>
-  <div id='title-div' class="col-sm-offset-3 col-sm-6">
+  <div id='title-div' class="col-sm-offset-3 col-sm-6  text-center">
     <h1 id="prod-name">RealTime</h1>
-    <span class="sub-sentence text-center col-sm-offset-2">Use your down time <span class="productively">productively</span>.</span>
+    <span class="sub-sentence">Use your down time <span class="productively">productively</span>.</span>
     <div class="row" >
       <a href="#loginModal" class="col-xs-offset-3 col-xs-3">
-        <button type="button" data-toggle="modal" data-target="#loginModal" class='btn btn-default btn-lg login'>Login</button>
+        <button type="button" data-toggle="modal" data-target="#loginModal" class='btn btn-default btn-lg access'>Login</button>
       </a>
       <a href="#singupModal" class="col-xs-3" >
-        <button type="button" data-toggle="modal" data-target="#signupModal" class='btn btn-default btn-lg signup'> Signup</button>
+        <button type="button" data-toggle="modal" data-target="#signupModal" class='btn btn-default btn-lg access'> Signup</button>
       </a>
     </div>
   </div>
@@ -53,7 +53,7 @@
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
-            <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-default login" %>
+            <%= f.submit  t('.sign_in', :default => "Sign in"), class: "btn btn-default submission" %>
           </div>
         </div>
         <% end %>
@@ -91,7 +91,7 @@
               <%= f.password_field :password_confirmation, placeholder: "Password Confirmation", class: "form-control" %>
             </div>
           </div>
-          <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-default signup" %>
+          <%= f.submit t('.sign_up', :default => "Sign up"), class: "btn btn-default submission" %>
         <% end %>
       </div>
     </div>
