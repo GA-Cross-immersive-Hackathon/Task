@@ -23,15 +23,15 @@ var collapsableList = function() {
 //   var colors = ["#96F2FC", "#00DDFF", "#00B4FF", "#2366D0"];
 //
 //       var $newDiv = $('<div>');
-//       $newDiv.width(25);
-//       $newDiv.height(25);
+//       $newDiv.width(40);
+//       $newDiv.height(40);
 //       progressBarDiv.append($newDiv);
 //   if (counter < colors.length) {
 //     $newDiv.css({
 //       'background-color': colors[counter],
 //       'border-radius': 5,
 //       'margin-left': 10,
-//       'float': 'left'
+//       'display': 'inline-block'
 //   });
 //     counter++;
 //   } else {
@@ -40,9 +40,7 @@ var collapsableList = function() {
 //   }
 // }
 //
-// function renderProgressBar(e){
-//   var modalId = $(e.currentTarget).data("target");
-//   var modalProgressBar = $(modalId+"progressBar");
+// function renderProgressBar(modalProgressBar){
 // 	setInterval(progressBar(modalProgressBar),1000)
 // }
 
@@ -76,11 +74,36 @@ var startTimer = function(e) {
   xhr.send();
 }
 
+var renderResponse= function(modalBody, obj, divId) {
+  console.log(modalBody);
+  modalBody.children('.progressBar').remove();
+  var time_est = obj.estimate_time;
+  var actual_time = obj.total_time[0] + ":" + obj.total_time[1] + ":" + obj.total_time[2];
+  var $newHeader = $('<h4>');
+  var $timeP = $('<p>');
+  $newHeader.text(actual_time);
+  $timeP.text('Actual time: ' + actual_time);
+  $timeP.addClass('.action-time');
+  $newHeader.css({
+      'font-family': 'futura',
+      'color': '#070173'
+  })
+  modalBody.children('.returnedTime').append($newHeader);
 
-var stopTimer = function(modalButton) {
-  console.log(modalButton.dataset.id);
+  $('#div'+divId).children('.time-foot').text('Real time: ' + actual_time);
+  $('#div'+divId).css({
+    'background-color': 'white',
+    'color': '#070173',
+  })
+  $('#div'+divId).children('.action').css({
+    'text-decoration': 'line-through',
+  })
+}
+
+var stopTimer = function(modalId,modalButton) {
+  var modalBody = $(modalId+"Body");
+  var divId = modalButton.data('id');
   console.log("we are in stopTimer!")
-  console.log($(e.currentTarget));
   var xhr = new XMLHttpRequest();
       xhr.open('GET', '/token.json');
       xhr.addEventListener('load', function() {
@@ -91,11 +114,13 @@ var stopTimer = function(modalButton) {
          }
 
   var xhr2 = new XMLHttpRequest();
-        xhr2.open('PUT', '/actions/'+$(e.currentTarget).attr("id"));
+        xhr2.open('PUT', '/actions/'+ modalButton.data('id'));
         xhr2.setRequestHeader('Content-Type', "application/json;charset=UTF-8")
         xhr2.addEventListener('load', function() {
           var statusResponse = JSON.parse(xhr2.responseText);
           if (statusResponse.status === "success") {
+            // render response in modal
+            renderResponse(modalBody, statusResponse.time_metrics, divId);
             console.log(statusResponse.time_metrics);
           } else {
             alert("there was an error saving your data")
@@ -108,15 +133,13 @@ var stopTimer = function(modalButton) {
 }
 
 var grabStartButtons = function() {
-
   $('.doButton').on('click', function(e) {
+    // var modalId = $(e.currentTarget).data("target");
+    // var modalProgressBar = $(modalId+"progressBar");
+    // console.log(modalProgressBar);
     startTimer(e);
-    // renderProgressBar(e);
-    setTimeout(grabStopButtons(e), 3000);
-    // var h3 = $(this).parent().parent().children('.action')
-    // var action = (h3.text());
-    //  make an ajax call for get token, then ajax to update the server. the object being sent should
-    // have an update key "update : start"
+    // renderProgressBar(modalProgressBar);
+    grabStopButtons(e);
   });
 }
 
@@ -124,8 +147,7 @@ var grabStopButtons = function(e) {
   console.log("we're in Grab stop Button")
   var modalId = $(e.currentTarget).data("target");
   var modalButton = $(modalId + "button");
-  console.log(modalButton);
-  modalButton.addEventListener("click", function() {
-    stopTimer(modalButton);
+  modalButton.on("click", function() {
+    stopTimer(modalId,modalButton);
   })
 }

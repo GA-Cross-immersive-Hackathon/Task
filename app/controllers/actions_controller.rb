@@ -32,10 +32,10 @@ class ActionsController < ApplicationController
 
   def current_list
     @time_est = params[:time_available]
-    actions = @user.actions.where("time_estimated <= ?", @time_est)
+    actions = @user.actions.where("time_estimated <= ? AND is_completed = ?", @time_est, false)
     # these are priority actions that are at or below the time available
     @priority_actions = actions.where(priority: true).order("time_estimated").reverse
-    nonpriority = actions.where(priority: false)
+    nonpriority = actions.where(priority: false, is_completed: false)
     # these are the nonpriority actions that are at or below the time available
     @sorted_actions = nonpriority.order("time_estimated").reverse
   end
@@ -49,8 +49,9 @@ class ActionsController < ApplicationController
         render json: {status: "error"}
       end
     elsif params[:update] === "stop"
-      @action.update({time_finished: Time.now })
+      @action.update({time_finished: Time.now, is_completed: true})
       @total_time = hour_min(@action.time_finished,@action.time_started)
+      @action.update({time_took: @total_time})
       time_obj = {
         estimated_time: @action.time_estimated,
         total_time: @total_time
