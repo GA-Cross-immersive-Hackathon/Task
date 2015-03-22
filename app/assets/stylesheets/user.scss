@@ -161,7 +161,37 @@ ul{
     float: right;
   }
 }
-//
+// current_list.html.erb modal, progress div
+.modal-head-time {
+  color: #070173;
+  font-family:'Futura';
+}
+.progressBar {
+  width:40px;
+  height:40px;
+  display: inline-block;
+  margin-right:8%;
+  float: center;
+}
+.firstP {
+  background-color: #00B4FF;
+}
+.secondP {
+  background-color: #2366D0;
+}
+.thirdP {
+  background-color: #0205DA;
+}
+.fourthP {
+  background-color: #070173;
+}
+.fifthP {
+  background-color: #2B015C;
+}
+
+
+
+// current_list.html.erb 'do task'
 .doButton {
   margin-bottom: 2%;
   font-family: 'Lato', sans-serif;

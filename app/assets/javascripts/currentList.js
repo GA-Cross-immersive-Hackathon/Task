@@ -15,31 +15,36 @@ var collapsableList = function() {
 }
 
 // progress bar to be displayed while user is accomplishing task
-var  counter= 0;
-var progressBar = function() {
-  var colors = ["#96F2FC", "#00DDFF", "#00B4FF", "#2366D0"];
-
-      var $newDiv = $('<div>');
-      $newDiv.width(25);
-      $newDiv.height(25);
-      $('#progressBar').append($newDiv);
-  if (counter < colors.length) {
-    $newDiv.css({
-      'background-color': colors[counter],
-      'border-radius': 5,
-      'margin-left': 10,
-      'float': 'left'
-  });
-    counter++;
-  } else {
-    counter = 0;
-    $('#progressBar').children().remove();
-  }
-}
-
-function renderProgressBar(){
-	setInterval(progressBar(),1000)
-}
+// var  counter= 0;
+// var progressBar = function(progressBarDiv) {
+//
+//   console.log(progressBarDiv);
+//
+//   var colors = ["#96F2FC", "#00DDFF", "#00B4FF", "#2366D0"];
+//
+//       var $newDiv = $('<div>');
+//       $newDiv.width(25);
+//       $newDiv.height(25);
+//       progressBarDiv.append($newDiv);
+//   if (counter < colors.length) {
+//     $newDiv.css({
+//       'background-color': colors[counter],
+//       'border-radius': 5,
+//       'margin-left': 10,
+//       'float': 'left'
+//   });
+//     counter++;
+//   } else {
+//     counter = 0;
+//     progressBarDiv.children().remove();
+//   }
+// }
+//
+// function renderProgressBar(e){
+//   var modalId = $(e.currentTarget).data("target");
+//   var modalProgressBar = $(modalId+"progressBar");
+// 	setInterval(progressBar(modalProgressBar),1000)
+// }
 
 
 
@@ -72,7 +77,10 @@ var startTimer = function(e) {
 }
 
 
-var stopTimer = function(e) {
+var stopTimer = function(modalButton) {
+  console.log(modalButton.dataset.id);
+  console.log("we are in stopTimer!")
+  console.log($(e.currentTarget));
   var xhr = new XMLHttpRequest();
       xhr.open('GET', '/token.json');
       xhr.addEventListener('load', function() {
@@ -99,39 +107,12 @@ var stopTimer = function(e) {
   xhr.send();
 }
 
-
-// var dynamicModal = function() {
-//   console.log("we're inside the dynamical modal");
-//   $('#choosingTaskModal').on('show.bs.modal', function (event) {
-//
-//     e.preventDefault();
-//     console.log("default should have been prevented");
-//     // var h3 = $(this).parent().parent().children('.action')
-//     // var action = (h3.text());
-//     var button = $(event.relatedTarget)
-//     console.log(button)
-//     console.log(button.data) // Button that triggered the modal
-//     var task = button.data('whatever') // Extract info from data-* attributes
-//     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-//     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-//     var modal = $(this)
-//     modal.find('.modal-title').text('You have started task:' + task)
-//     // modal.find('.modal-body input').val(recipient)
-//   })
-//
-//   grabStopButtons();
-//   $('#choosingTaskModal').modal('show');
-//
-// }
-
-
-
 var grabStartButtons = function() {
 
   $('.doButton').on('click', function(e) {
     startTimer(e);
-    grabStopButtons();
-    // dynamicModal();
+    // renderProgressBar(e);
+    setTimeout(grabStopButtons(e), 3000);
     // var h3 = $(this).parent().parent().children('.action')
     // var action = (h3.text());
     //  make an ajax call for get token, then ajax to update the server. the object being sent should
@@ -139,10 +120,12 @@ var grabStartButtons = function() {
   });
 }
 
-var grabStopButtons = function() {
+var grabStopButtons = function(e) {
   console.log("we're in Grab stop Button")
-  console.log($('.stop-timer'));
-  $('.stop-timer').on('click', function(e) {
-    stopTimer(e);
-});
+  var modalId = $(e.currentTarget).data("target");
+  var modalButton = $(modalId + "button");
+  console.log(modalButton);
+  modalButton.addEventListener("click", function() {
+    stopTimer(modalButton);
+  })
 }

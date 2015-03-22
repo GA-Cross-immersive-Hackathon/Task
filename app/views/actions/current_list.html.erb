@@ -3,7 +3,7 @@
 
 
 
-	<h1 class="col-sm-offset-3 col-sm-9">With <%= @time_est %> minutes you could: </h1>
+	<h1 class="col-sm-offset-3 col-sm-9 header-current-time">With <%= @time_est %> minutes you could: </h1>
 
 
 	<!-- if action is a priority -->
@@ -15,7 +15,7 @@
 			<div class="clicker-div">
 				<p>Notes: <%= priority.notes%></p>
 				<p class="action-time">Time: <%= priority.time_estimated%></p>
-				<button class="doButton" id="<%=priority.id%>" type="button" data-toggle="modal" data-target="modal<%=priority.id%>" class="btn btn-default select-task">Do this task.</button>
+				<button class="doButton" id="<%=priority.id%>" type="button" data-toggle="modal" data-target="#modal<%=priority.id%>" class="btn btn-default select-task">Do this task.</button>
 			</div>
 		</div>
 	<% end %>
@@ -106,42 +106,62 @@
 
 <!-- TIMER MODAL -->
 <% @priority_actions.each do |priority| %>
-<div class="modal fade" id="modal<%=priority.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal<%=priority.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Task: <%= priority.action_name%></h4>
+        <h3 class="modal-title" id="myModalLabel">Task: <%= priority.action_name%></h3>
       </div>
 			<div class="modal-body ">
-				<div class="progressBar">
-
+				<h4 class= "modal-head-time">You have estimated <%=priority.time_estimated%> for this task.</h4>
+				<div class="progress progressBar">
+	  			<div class="progress-bar progress-bar-striped active firstP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
 				</div>
-				<script charset="utf-8">
-					renderProgressBar();
-				</script>
-				<button type="button" class="btn btn-default stop-task">Finished</button>
+				<div class="progress progressBar">
+					<div class="progress-bar progress-bar-striped active secondP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div>
+				<div class="progress progressBar">
+					<div class="progress-bar progress-bar-striped active thirdP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div>
+				<div class="progress progressBar">
+					<div class="progress-bar progress-bar-striped active fourthP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div>
+				<div class="progress progressBar">
+					<div class="progress-bar progress-bar-striped active fifthP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div> <br>
+				<button id="modal<%=priority.id%>button" data-id="<%priority.id%>" type="button" class="btn btn-default stop-task">Finished</button>
 			</div>
     </div>
   </div>
 </div>
 <% end %>
 <% @sorted_actions.each do |sorted| %>
-<div class="modal fade" id="modal<%=sorted.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal<%=sorted.id%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Task: <%=sorted.action_name%></h4>
+        <h3 class="modal-title" id="myModalLabel">Task: <%=sorted.action_name%></h3>
       </div>
 			<div class="modal-body ">
-				<div class="progressBar">
-
+				<h4 class= "modal-head-time">You have estimated <%=sorted.time_estimated%> for this task.</h4>
+				<div class="progress progressBar">
+	  			<div class="progress-bar progress-bar-striped active firstP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
 				</div>
-				<script charset="utf-8">
-					renderProgressBar();
-				</script>
-				<button type="button" class="btn btn-default stop-task">Finished</button>
+				<div class="progress progressBar">
+					<div class="progress-bar progress-bar-striped active secondP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div>
+				<div class="progress progressBar">
+					<div class="progress-bar progress-bar-striped active thirdP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div>
+				<div class="progress progressBar">
+					<div class="progress-bar progress-bar-striped active fourthP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div>
+				<div class="progress progressBar">
+					<div class="progress-bar progress-bar-striped active fifthP" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+				</div> <br>
+				<button id="modal<%=sorted.id%>button" data-id="<%sorted.id%>" type="button" class="btn btn-default stop-task">Finished</button>
 			</div>
     </div>
   </div>
