@@ -9,9 +9,6 @@ class ActionsController < ApplicationController
     # these are the nonpriority actions
     @sorted_actions = nonpriority.order("time_estimated").reverse
     # @all_sorted_actions = actions.order("time_estimated")
-
-    # binding.pry
-
     render :index
   end
 
@@ -21,7 +18,6 @@ class ActionsController < ApplicationController
   end
 
   def create
-    # binding.pry
     @actions = @user.actions.create(action_params)
     if @actions
       render json: {status: "success"}
@@ -51,7 +47,7 @@ class ActionsController < ApplicationController
     elsif params[:update] === "stop"
       @action.update({time_finished: Time.now, is_completed: true})
       @total_time = hour_min(@action.time_finished,@action.time_started)
-      @action.update({time_took: @total_time})
+      @action.update({time_took: @total_time}) # won't store bc the schema is expecting an integer. We need to store it as an array or string
       time_obj = {
         estimated_time: @action.time_estimated,
         total_time: @total_time
@@ -63,11 +59,11 @@ class ActionsController < ApplicationController
       end
 
     end
-    # check params.update, if === start, update
-    # if 'start' find the corresponding action and update the column time_started
-    # if 'end' find the corresponding action and update the column time_finished
-    # and calculate the time it took to accomplish task
+  end
 
+  def history
+      @history = @user.actions.where("is_completed = ?", true)
+      render :history
   end
 
   def destroy

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/token' => 'token#token'
 
   get '/current_list' => 'actions#current_list'
+  get '/history' => 'actions#history'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
